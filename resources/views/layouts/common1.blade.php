@@ -382,25 +382,10 @@
                         <nav class="float-left">
                             <ul>
                                 <li>
-                                    <a href="https://www.dtechlk.com">
-                                        DTech
+                                    <a href="https://www.spahub.lk">
+                                        Spa HUB
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="https://creative-tim.com/presentation">
-                                        About Us
-                                    </a>
-                                </li>
-                                {{-- <li>
-                                    <a href="http://blog.creative-tim.com">
-                                        Blog
-                                    </a>
-                                </li> --}}
-                                {{-- <li>
-                                    <a href="https://www.creative-tim.com/license">
-                                        Licenses
-                                    </a>
-                                </li> --}}
+                                </li>                               
                             </ul>
                         </nav>
                         
