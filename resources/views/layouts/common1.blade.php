@@ -2,42 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-touch-icon')}}">
     <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
-        Lara vel
+        SPAHUB
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link href="{{asset('css/material-dashboard.css?v=2.1.0')}}" rel="stylesheet" />
+    <link href="{{asset('css/material-dashboard.css?v=2.1.0')}}" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
+    <link href="{{asset('demo/demo.css')}}" rel="stylesheet"/>
 
 
     <link href="{{asset('assets/plugins/dropzone/dist/dropzone.css')}}" rel="stylesheet" type="text/css">
     <!-- DataTables -->
-    <link href="{{asset('assets/plugins/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/plugins/datatables/buttons.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/plugins/datatables/fixedHeader.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/plugins/datatables/responsive.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/plugins/datatables/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/plugins/datatables/scroller.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/plugins/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/plugins/datatables/buttons.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/plugins/datatables/fixedHeader.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/plugins/datatables/responsive.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/plugins/datatables/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/plugins/datatables/scroller.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
     <!--Sweet Alert-->
     <link href="{{asset('assets/plugins/bootstrap-sweetalert/sweet-alert.css')}}" rel="stylesheet" type="text/css">
+
 
     <!--Animate css-->
     <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet" type="text/css">
     <!--Morris Chart CSS -->
 
+    <!-- Hub Scc-->
+    <link href="{{asset('hub/css/hub-dashboard.css')}}" rel="stylesheet" type="text/css">
+    <!--Damith Thiwanka-->
+
     <link href="{{asset('assets/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css">
-    {{--<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">--}}
-    {{--<link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css">--}}
-    {{--<link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">--}}
+    {{--
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    --}}
+    {{--
+    <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css">
+    --}}
+    {{--
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">
+    --}}
 
 
 </head>
@@ -52,18 +65,18 @@
       -->
         <div class="logo">
             <a href="#" class="simple-text logo-mini">
-              
+
             </a>
             <a href="#" class="simple-text logo-normal">
-              Laravel
+                SPAHUB
             </a>
         </div>
 
-        
+
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="{{asset('img/faces/Heshan.jpg')}}" />
+                    <img src="{{asset('img/faces/Heshan.jpg')}}"/>
                 </div>
                 <div class="user-info">
                     <a data-toggle="collapse" href="#collapseExample" class="username">
@@ -75,23 +88,29 @@
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)" >
+                                <a class="nav-link" href="javascript:void(0)">
                                     <span class="sidebar-mini"> MP </span>
                                     <span class="sidebar-normal"> My Profile </span>
                                 </a>
                             </li>
-                            {{--<li class="nav-item">--}}
+                            {{--
+                            <li class="nav-item">--}}
                                 {{--<a class="nav-link" href="#">--}}
                                     {{--<span class="sidebar-mini"> EP </span>--}}
                                     {{--<span class="sidebar-normal"> Edit Profile </span>--}}
-                                {{--</a>--}}
-                            {{--</li>--}}
-                            {{--<li class="nav-item">--}}
+                                    {{--</a>--}}
+                                {{--
+                            </li>
+                            --}}
+                            {{--
+                            <li class="nav-item">--}}
                                 {{--<a class="nav-link" href="#">--}}
                                     {{--<span class="sidebar-mini"> S </span>--}}
                                     {{--<span class="sidebar-normal"> Settings </span>--}}
-                                {{--</a>--}}
-                            {{--</li>--}}
+                                    {{--</a>--}}
+                                {{--
+                            </li>
+                            --}}
                         </ul>
                     </div>
                 </div>
@@ -124,150 +143,144 @@
                                     <span class="sidebar-normal"> View My Documents </span>
                                 </a>
                             </li>
-                        
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/view-all-docs">
-                                        <span class="sidebar-mini"> V</span>
-                                        <span class="sidebar-normal">View All Documents</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/viewalldeleted">
-                                        <span class="sidebar-mini"> V</span>
-                                        <span class="sidebar-normal">View All Deleted Docs</span>
-                                    </a>
-                                </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/view-all-docs">
+                                    <span class="sidebar-mini"> V</span>
+                                    <span class="sidebar-normal">View All Documents</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/viewalldeleted">
+                                    <span class="sidebar-mini"> V</span>
+                                    <span class="sidebar-normal">View All Deleted Docs</span>
+                                </a>
+                            </li>
 
 
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/view-file-browser">
+                                    <span class="sidebar-mini"> V</span>
+                                    <span class="sidebar-normal">Download & View Document</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/delete-doc-approvals">
+                                    <span class="sidebar-mini"> D</span>
+                                    <span class="sidebar-normal">Delete Documents Approvals</span>
+                                </a>
+                            </li>
 
-                           
-                           
-                               <li class="nav-item ">
-                                    <a class="nav-link" href="/view-file-browser">
-                                        <span class="sidebar-mini"> V</span>
-                                        <span class="sidebar-normal">Download & View Document</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/delete-doc-approvals">
-                                        <span class="sidebar-mini"> D</span>
-                                        <span class="sidebar-normal">Delete Documents Approvals</span>
-                                    </a>
-                                </li>
-
-                                {{--<li><a href="/edit-docs">Edit Documents</a></li>--}}
-                                {{--<li><a href="/delete-docs">Delete Documents</a></li>--}}
-                                {{--<li><a href="/"></a></li>--}}
+                            {{--
+                            <li><a href="/edit-docs">Edit Documents</a></li>
+                            --}}
+                            {{--
+                            <li><a href="/delete-docs">Delete Documents</a></li>
+                            --}}
+                            {{--
+                            <li><a href="/"></a></li>
+                            --}}
 
 
-
-                          
                         </ul>
                     </div>
                 </li>
 
-              
 
-                    <li class="nav-item ">
-                        <a class="nav-link" data-toggle="collapse" href="#fileExplorer">
-                            <i class="material-icons">image</i>
-                            <p> File Explorer
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="fileExplorer">
-                            <ul class="nav">
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/view-file-browser">
-                                        <span class="sidebar-mini"> F </span>
-                                        <span class="sidebar-normal">Open File Explorer </span>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </li>
-
-              
+                <li class="nav-item ">
+                    <a class="nav-link" data-toggle="collapse" href="#fileExplorer">
+                        <i class="material-icons">image</i>
+                        <p> File Explorer
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="fileExplorer">
+                        <ul class="nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/view-file-browser">
+                                    <span class="sidebar-mini"> F </span>
+                                    <span class="sidebar-normal">Open File Explorer </span>
+                                </a>
+                            </li>
 
 
-                    <li class="nav-item ">
-                        <a class="nav-link" data-toggle="collapse" href="#settings">
-                            <i class="material-icons">image</i>
-                            <p> Settings
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="settings">
-                            <ul class="nav">
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/create-user">
-                                        <span class="sidebar-mini"> C </span>
-                                        <span class="sidebar-normal">Add User</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/view-user">
-                                        <span class="sidebar-mini"> V</span>
-                                        <span class="sidebar-normal">View Users</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/create-sector">
-                                        <span class="sidebar-mini"> A</span>
-                                        <span class="sidebar-normal">Add Sector</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/create-company">
-                                        <span class="sidebar-mini"> A </span>
-                                        <span class="sidebar-normal">Add Company</span>
-                                    </a>
-                                </li>
+                        </ul>
+                    </div>
+                </li>
 
 
-                            </ul>
-                        </div>
-                    </li>
+                <li class="nav-item ">
+                    <a class="nav-link" data-toggle="collapse" href="#settings">
+                        <i class="material-icons">image</i>
+                        <p> Settings
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="settings">
+                        <ul class="nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/create-user">
+                                    <span class="sidebar-mini"> C </span>
+                                    <span class="sidebar-normal">Add User</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/view-user">
+                                    <span class="sidebar-mini"> V</span>
+                                    <span class="sidebar-normal">View Users</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/create-sector">
+                                    <span class="sidebar-mini"> A</span>
+                                    <span class="sidebar-normal">Add Sector</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/create-company">
+                                    <span class="sidebar-mini"> A </span>
+                                    <span class="sidebar-normal">Add Company</span>
+                                </a>
+                            </li>
 
-              
 
-                    <li class="nav-item ">
-                        <a class="nav-link" data-toggle="collapse" href="#settings2">
-                            <i class="material-icons">image</i>
-                            <p> Settings
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="settings2">
-                            <ul class="nav">
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/sector-approvals">
-                                        <span class="sidebar-mini"> S</span>
-                                        <span class="sidebar-normal">Sector</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/company-approvals">
-                                        <span class="sidebar-mini"> C</span>
-                                        <span class="sidebar-normal">Company</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/audit">
-                                        <span class="sidebar-mini"> A</span>
-                                        <span class="sidebar-normal">Audit Log</span>
-                                    </a>
-                                </li>
+                        </ul>
+                    </div>
+                </li>
 
 
+                <li class="nav-item ">
+                    <a class="nav-link" data-toggle="collapse" href="#settings2">
+                        <i class="material-icons">image</i>
+                        <p> Settings
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="settings2">
+                        <ul class="nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/sector-approvals">
+                                    <span class="sidebar-mini"> S</span>
+                                    <span class="sidebar-normal">Sector</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/company-approvals">
+                                    <span class="sidebar-mini"> C</span>
+                                    <span class="sidebar-normal">Company</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/audit">
+                                    <span class="sidebar-mini"> A</span>
+                                    <span class="sidebar-normal">Audit Log</span>
+                                </a>
+                            </li>
 
-                            </ul>
-                        </div>
-                    </li>
 
-              
+                        </ul>
+                    </div>
+                </li>
 
 
             </ul>
@@ -287,7 +300,8 @@
                     </div>
                     <a class="navbar-brand" href="#pablo">Dashboard</a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="navbar-toggler-icon icon-bar"></span>
                     <span class="navbar-toggler-icon icon-bar"></span>
@@ -296,8 +310,8 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <form class="navbar-form">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <input type="text" value="" class="form-control" placeholder="Search apoinment ">
+                            <button type="submit" class="btn btn-sm btn-white btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
                             </button>
@@ -313,7 +327,8 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">notifications</i>
                                 <span class="notification">5</span>
                                 <p class="d-lg-none d-md-block">
@@ -329,7 +344,8 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
                                 {{-- <i class="material-icons">person</i> --}}
                                 <i class="material-icons">person</i>
                                 <p class="d-lg-none d-md-block">
@@ -339,43 +355,45 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                 {{--<a class="dropdown-item" href="#">Profile</a>--}}
                                 {{--<a class="dropdown-item" href="#">Settings</a>--}}
-                                {{--<div class="dropdown-divider"></div>--}}
+                                {{--
+                                <div class="dropdown-divider"></div>
+                                --}}
                                 {{--<a class="dropdown-item" href="#">Log out</a>--}}
-                       <a class="dropdown-item" href="javascript:void(0)" >Profile</a>
-                        {{--<a class="dropdown-item" href="javascript:void(0)"><span class="badge badge-success pull-right">5</span> Settings </a>--}}
-                        <a class="dropdown-item" href="javascript:void(0)"> Lock screen</a>
-                       <a class="dropdown-item" href="javascript:void(0)"> User Roll:
-                             
-                            </a>
+                                <a class="dropdown-item" href="javascript:void(0)">Profile</a>
+                                {{--<a class="dropdown-item" href="javascript:void(0)"><span
+                                        class="badge badge-success pull-right">5</span> Settings </a>--}}
+                                <a class="dropdown-item" href="javascript:void(0)"> Lock screen</a>
+                                <a class="dropdown-item" href="javascript:void(0)"> User Roll:
 
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }} </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                                    {{ __('Logout') }} </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
 
 
                             </div>
                         </li>
-                        
-                        
+
+
                     </ul>
                 </div>
             </div>
         </nav>
 
 
-
-       
         <!-- Top Bar End -->
 
         <!-- End Navbar -->
         <div class="content">
             <div class="content">
                 <div class="container-fluid">
-                 @yield('content')
+                    @yield('content')
                 </div>
                 <footer class="footer">
                     <div class="container-fluid">
@@ -385,15 +403,15 @@
                                     <a href="https://www.spahub.lk">
                                         Spa HUB
                                     </a>
-                                </li>                               
+                                </li>
                             </ul>
                         </nav>
-                        
+
                     </div>
                 </footer>
             </div>
         </div>
-       
+
         <!--   Core JS Files   -->
         <script src="../assets/js/core/jquery.min.js"></script>
         <script src="../assets/js/core/popper.min.js"></script>
@@ -444,9 +462,11 @@
         <script type="text/javascript" src="{{asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
 
 
+
+
         <script>
-            $(document).ready(function() {
-                $().ready(function() {
+            $(document).ready(function () {
+                $().ready(function () {
                     $sidebar = $('.sidebar');
 
                     $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -466,7 +486,7 @@
 
                     }
 
-                    $('.fixed-plugin a').click(function(event) {
+                    $('.fixed-plugin a').click(function (event) {
                         // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
                         if ($(this).hasClass('switch-trigger')) {
                             if (event.stopPropagation) {
@@ -477,7 +497,7 @@
                         }
                     });
 
-                    $('.fixed-plugin .active-color span').click(function() {
+                    $('.fixed-plugin .active-color span').click(function () {
                         $full_page_background = $('.full-page-background');
 
                         $(this).siblings().removeClass('active');
@@ -498,7 +518,7 @@
                         }
                     });
 
-                    $('.fixed-plugin .background-color .badge').click(function() {
+                    $('.fixed-plugin .background-color .badge').click(function () {
                         $(this).siblings().removeClass('active');
                         $(this).addClass('active');
 
@@ -509,7 +529,7 @@
                         }
                     });
 
-                    $('.fixed-plugin .img-holder').click(function() {
+                    $('.fixed-plugin .img-holder').click(function () {
                         $full_page_background = $('.full-page-background');
 
                         $(this).parent('li').siblings().removeClass('active');
@@ -519,7 +539,7 @@
                         var new_image = $(this).find("img").attr('src');
 
                         if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                            $sidebar_img_container.fadeOut('fast', function() {
+                            $sidebar_img_container.fadeOut('fast', function () {
                                 $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
                                 $sidebar_img_container.fadeIn('fast');
                             });
@@ -528,7 +548,7 @@
                         if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
                             var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-                            $full_page_background.fadeOut('fast', function() {
+                            $full_page_background.fadeOut('fast', function () {
                                 $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
                                 $full_page_background.fadeIn('fast');
                             });
@@ -548,7 +568,7 @@
                     });
 
 
-                    $('.switch-sidebar-image input').change(function() {
+                    $('.switch-sidebar-image input').change(function () {
                         $full_page_background = $('.full-page-background');
 
                         $input = $(this);
@@ -580,7 +600,7 @@
                         }
                     });
 
-                    $('.switch-sidebar-mini input').change(function() {
+                    $('.switch-sidebar-mini input').change(function () {
                         $body = $('body');
 
                         $input = $(this);
@@ -595,7 +615,7 @@
 
                             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 $('body').addClass('sidebar-mini');
 
                                 md.misc.sidebar_mini_active = true;
@@ -603,12 +623,12 @@
                         }
 
                         // we simulate the window Resize so the charts will get updated in realtime.
-                        var simulateWindowResize = setInterval(function() {
+                        var simulateWindowResize = setInterval(function () {
                             window.dispatchEvent(new Event('resize'));
                         }, 180);
 
                         // we stop the simulation of Window Resize after the animations are completed
-                        setTimeout(function() {
+                        setTimeout(function () {
                             clearInterval(simulateWindowResize);
                         }, 1000);
 
@@ -617,7 +637,7 @@
             });
         </script>
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 // Javascript method's body can be found in assets/js/demos.js
                 md.initDashboardPageCharts();
 
@@ -628,7 +648,6 @@
     </div>
 </div>
 @yield('scripts')
-
 
 
 </body>
