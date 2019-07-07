@@ -720,13 +720,13 @@ demo = {
       }).catch(swal.noop)
 
     } else if (type == 'success-message') {
-      swal({
-        title: "Good job!",
-        text: "You clicked the button!",
-        buttonsStyling: false,
-        confirmButtonClass: "btn btn-success",
-        type: "success"
-      }).catch(swal.noop)
+        swal({
+            title: "Customer Created ",
+            text: "Customer Created Successfully ",
+            buttonsStyling: false,
+            confirmButtonClass: "btn btn-success",
+            type: "success"
+        }).catch(swal.noop)
 
     } else if (type == 'warning-message-and-confirmation') {
       swal({

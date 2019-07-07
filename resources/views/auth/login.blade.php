@@ -9,8 +9,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-7 col-sm-9 ml-5">
-                    <form class="form " method="" action="">
-                        <div class="card card-login card-hidden" style="height: 450px">
+                    <form class="form " method="POST" action="{{ route('login') }}">
+                        <div class="card card-login card-hidden" >
+<!--                            style="height: 450px"-->
                             <div class="card-header card-header-rose text-center">
                                 <h4 class="card-title">SPAHUB</h4>
                             </div>
@@ -18,22 +19,48 @@
                                 <p class="card-description text-center">Welcome Back! Please Login to your Account </p>
                                 <span class="bmd-form-group">
                                  <div class="input-group ml-5 mr-4" style="width: auto">
-                                   <input type="text" class="form-control" placeholder="Mobile Number">
+<!--                                   <input type="text" class="form-control" placeholder="Mobile Number">-->
+                                      <input id="email" type="email"
+                                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                             name="email" placeholder="Email" value="{{ old('email') }}" required
+                                             autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                                  </div>
                                 </span>
                                 <span class="bmd-form-group">
                                   <div class="input-group ml-5 mr-4" style="width: auto">
-                                       <input type="password" class="form-control" placeholder="Password...">
+<!--                                       <input type="password" class="form-control" placeholder="Password...">-->
+                                      <input id="password" type="password"
+                                             class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                             name="password" placeholder="Password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                                  </div>
                                  </span>
-                                <span class="bmd-form-group">
-                                  <div class="input-group ml-5 mr-4" style="width: auto">
-                                       <input type="password" class="form-control" placeholder="Password...">
-                                 </div>
-                                 </span>
+
                             </div>
-                            <div class="card-footer justify-content-center">
-                                <a href="#pablo" class="btn btn-rose btn-link btn-lg">Lets Go</a>
+                            <div class="card-footer justify-content-center mt-5">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+
+
+                                @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                                @endif
+                                <!--                                <a href="#pablo" class="btn btn-rose btn-link btn-lg">Lets Go</a>-->
                             </div>
                         </div>
                     </form>

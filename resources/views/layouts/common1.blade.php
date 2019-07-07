@@ -51,7 +51,7 @@
     {{--
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">
     --}}
-
+    @yield('links')
 
 </head>
 

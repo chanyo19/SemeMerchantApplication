@@ -1,4 +1,9 @@
 @extends('layouts.common1')
+
+@section('links')
+
+
+@endsection
 @section('content')
 
 <!--<div class="row">-->
@@ -20,11 +25,142 @@
     <div class="col-4 card">
         <div class="row mt-2">
             <div class="col-md-6 ">
-                <button class="btn btn-danger btn-block">Add Customer</button>
+                <button
+                    class="btn btn-danger btn-block" data-toggle="modal" data-target="#hubCustomerAdd">Add Customer
+                </button>
+                <!--Hub Customer Modal-->
+                <div class="modal fade" id="hubCustomerAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class=" card-profile">
+                                <div class="card-avatar">
+                                    <a href="#pablo">
+                                        <img class="img" src="{{asset('assets/img/UploadImages.png')}}"/>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title text-gray"><b>New Customer</b></h4>
+                                    <span class="bmd-form-group">
+                                <div class="input-group ml-4 mr-5" style="width: auto">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">face</i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Full Name">
+                                </div>
+                                </span>
+                                    <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">location_city</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Current City">
+                                    </div>
+                               </span>
+                                    <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">my_location</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Address">
+                                    </div>
+                                </span>
+                                    <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">smartphone</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Mobile Number">
+                                    </div>
+                                </span>
+                                    <a href="#pablo" class="btn btn-info mt-4">Create</a>
+                                    <a href="#pablo" class="btn btn-default btn-link mt-4" data-dismiss="modal">Close</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Of Hub Customer Modal-->
             </div>
             <div class="col-md-6">
-                <button class="btn btn-warning btn-block">Create Invoice</button>
+                <button
+                    class="btn btn-warning btn-block" data-toggle="modal" data-target="#creatInvoice">Create Invoice
+                </button>
             </div>
+            <!-- Create Invoice Modal -->
+            <div class="modal fade" id="creatInvoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create Invoice</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <i class="material-icons">clear</i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                               <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">face</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Full Name">
+                                    </div>
+                               </span>
+                            <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">location_city</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Current City">
+                                    </div>
+                               </span>
+                            <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">my_location</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Address">
+                                    </div>
+                                </span>
+                            <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5" style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">smartphone</i>
+                                             </span>
+                                         </div>
+                                        <input type="text" class="form-control" placeholder="Mobile Number">
+                                    </div>
+                                </span>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-link" onclick="demo.showSwal('success-message')">
+                                Create
+                            </button>
+                            <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  End Modal -->
         </div>
         <!--       card view container of today upcoming appoinments ------>
         <div class="row scrollbar">
