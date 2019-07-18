@@ -21,7 +21,7 @@
 
 
 Auth::routes();
-
+//Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
 Route::get('/dashboard', 'DashBoardController@index')->name('dashboard');
 

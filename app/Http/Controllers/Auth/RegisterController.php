@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/create-user';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -54,13 +54,12 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'department'=>['required','string','min:1'],
-            'sector'=>['required','string'],
-
-
+            'password' => ['required', 'string', 'min:6', 'confirmed']
         ]);
     }
+
+//    'department'=>['required','string','min:1'],
+//            'sector'=>['required','string'],
 
     /**
      * Create a new user instance after a valid registration.
@@ -80,11 +79,12 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'department'=>$data['department'],
-            'sector_name'=>$data['sector'],
-            'api_key'=>$api_key,
-            'user_type'=>$data['usertype']
+            'password' => Hash::make($data['password'])
         ]);
     }
+
+//     'department'=>$data['department'],
+//            'sector_name'=>$data['sector'],
+//'user_type'=>$data['usertype']
+// 'api_key'=>$api_key
 }

@@ -31,62 +31,87 @@
                 <!--Hub Customer Modal-->
                 <div class="modal fade" id="hubCustomerAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class=" card-profile">
-                                <div class="card-avatar">
-                                    <a href="#pablo">
-                                        <img class="img" src="{{asset('assets/img/UploadImages.png')}}"/>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title text-gray"><b>New Customer</b></h4>
-                                    <span class="bmd-form-group">
+                    <form id="createCus" action="" method="">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class=" card-profile">
+                                    <div class="card-avatar">
+                                        <a href="#pablo">
+                                            <img class="img" src="{{asset('assets/img/UploadImages.png')}}"/>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title text-gray"><b>New Customer</b></h4>
+                                        <span class="bmd-form-group">
                                 <div class="input-group ml-4 mr-5" style="width: auto">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="material-icons">face</i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Full Name">
+                                    <div class="form-group" style="width: 85%; padding-bottom: 0px;">
+                                    <input type="text" class="form-control" name="fullName" placeholder="Full Name"  required="true">
+                                    </div>
                                 </div>
                                 </span>
-                                    <span class="bmd-form-group">
+                                        <span class="bmd-form-group">
                                     <div class="input-group ml-4 mr-5" style="width: auto">
                                          <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                 <i class="material-icons">location_city</i>
                                              </span>
                                          </div>
-                                        <input type="text" class="form-control" placeholder="Current City">
+                                         <div class="form-group" style="width: 85%; padding-bottom: 0px;">
+                                        <input type="text" class="form-control" name="currentCity" placeholder="Current City"  required="true">
+                                         </div>
                                     </div>
                                </span>
-                                    <span class="bmd-form-group">
+                                        <span class="bmd-form-group">
                                     <div class="input-group ml-4 mr-5" style="width: auto">
                                          <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                 <i class="material-icons">my_location</i>
                                              </span>
                                          </div>
-                                        <input type="text" class="form-control" placeholder="Address">
+                                         <div class="form-group" style="width: 85%; padding-bottom: 0px;">
+                                        <input type="text" class="form-control" name="Caddress" placeholder="Address"  required="true">
+                                         </div>
                                     </div>
                                 </span>
-                                    <span class="bmd-form-group">
+                                        <span class="bmd-form-group">
                                     <div class="input-group ml-4 mr-5" style="width: auto">
                                          <div class="input-group-prepend">
                                             <span class="input-group-text">
                                                 <i class="material-icons">smartphone</i>
                                              </span>
                                          </div>
-                                        <input type="text" class="form-control" placeholder="Mobile Number">
+                                         <div class="form-group" style="width: 85%; padding-bottom: 0px;">
+                                        <input type="text" class="form-control" name="mobileNo" placeholder="Mobile Number"  required="true">
+                                         </div>
                                     </div>
-                                </span>
-                                    <a href="#pablo" class="btn btn-info mt-4">Create</a>
-                                    <a href="#pablo" class="btn btn-default btn-link mt-4" data-dismiss="modal">Close</a>
+                                    </span>
+                                        <span class="bmd-form-group">
+                                    <div class="input-group ml-4 mr-5"  style="width: auto">
+                                         <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">email</i>
+                                             </span>
+                                         </div>
+                                        <div class="form-group" style="width: 85%; padding-bottom: 0px;">
+                                        <input type="text" class="form-control" name="CEmail" placeholder="Email" email="true"
+                                               required="true">
+                                        </div>
+                                    </div>
+                                    </span>
+
+                                        <a href="#pablo" class="btn btn-info mt-4">Create</a>
+                                        <a href="#pablo" class="btn btn-default btn-link mt-4"
+                                           data-dismiss="modal">Close</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <!--End Of Hub Customer Modal-->
             </div>
@@ -574,6 +599,27 @@
 
         $('#carouselExample').carousel({
             interval: 2000
+        });
+
+        function setFormValidation(id) {
+            $(id).validate({
+                highlight: function (element) {
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+                    $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+                },
+                success: function (element) {
+                    $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+                    $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+                },
+                errorPlacement: function (error, element) {
+                    $(element).closest('.form-group').append(error);
+                },
+            });
+        }
+
+        $(document).ready(function () {
+            setFormValidation('#createCus');
+
         });
 
 

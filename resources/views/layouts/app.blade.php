@@ -26,7 +26,7 @@
 
 
 </head>
-<body class="off-canvas-sidebar">
+<body >
 @yield('content')
 
 </body>
