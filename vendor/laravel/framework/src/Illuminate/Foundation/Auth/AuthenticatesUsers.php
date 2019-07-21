@@ -143,7 +143,7 @@ trait AuthenticatesUsers
      */
     public function username()
     {
-        return 'email';
+        return 'spaemail';
     }
 
     /**
@@ -158,7 +158,7 @@ trait AuthenticatesUsers
 
         $request->session()->invalidate();
 
-        return $this->loggedOut($request) ?: redirect('/');
+        return $this->loggedOut($request) ?: redirect('/login');
     }
 
     /**

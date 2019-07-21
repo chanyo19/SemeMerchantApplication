@@ -213,7 +213,7 @@ demo = {
     $(function() {
 
       var $window = $(window),
-        isTouch = Modernizr.touch;
+          isTouch = Modernizr.touch;
 
       if (isTouch) {
         $('.add-animation').addClass('animated');
@@ -225,9 +225,9 @@ demo = {
         // Showed...
         $(".add-animation:not(.animated)").each(function() {
           var $this = $(this),
-            offsetTop = $this.offset().top,
-            scrolled = $window.scrollTop(),
-            win_height_padded = $window.height();
+              offsetTop = $this.offset().top,
+              scrolled = $window.scrollTop(),
+              win_height_padded = $window.height();
           if (scrolled + win_height_padded > offsetTop) {
             $this.addClass('animated');
           }
@@ -235,9 +235,9 @@ demo = {
         // Hidden...
         $(".add-animation.animated").each(function(index) {
           var $this = $(this),
-            offsetTop = $this.offset().top;
+              offsetTop = $this.offset().top;
           scrolled = $window.scrollTop(),
-            windowHeight = $window.height();
+              windowHeight = $window.height();
 
           win_height_padded = windowHeight * 0.8;
           if (scrolled + win_height_padded < offsetTop) {
@@ -266,7 +266,6 @@ demo = {
       }
     });
   },
-
 
   initPickColor: function() {
     $('.pick-class-label').click(function() {
@@ -721,8 +720,8 @@ demo = {
 
     } else if (type == 'success-message') {
       swal({
-        title: "Customer Created ",
-        text: "Customer Created Successfully ",
+        title: "Good job!",
+        text: "You clicked the button!",
         buttonsStyling: false,
         confirmButtonClass: "btn btn-success",
         type: "success"
@@ -785,8 +784,8 @@ demo = {
         buttonsStyling: false,
         confirmButtonClass: "btn btn-success",
         html: 'You can use <b>bold text</b>, ' +
-          '<a href="http://github.com">links</a> ' +
-          'and other HTML tags'
+            '<a href="http://github.com">links</a> ' +
+            'and other HTML tags'
       }).catch(swal.noop)
 
     } else if (type == 'auto-close') {
@@ -800,8 +799,8 @@ demo = {
       swal({
         title: 'Input something',
         html: '<div class="form-group">' +
-          '<input id="input-field" type="text" class="form-control" />' +
-          '</div>',
+            '<input id="input-field" type="text" class="form-control" />' +
+            '</div>',
         showCancelButton: true,
         confirmButtonClass: 'btn btn-success',
         cancelButtonClass: 'btn btn-danger',
@@ -810,8 +809,8 @@ demo = {
         swal({
           type: 'success',
           html: 'You entered: <strong>' +
-            $('#input-field').val() +
-            '</strong>',
+              $('#input-field').val() +
+              '</strong>',
           confirmButtonClass: 'btn btn-success',
           buttonsStyling: false
 

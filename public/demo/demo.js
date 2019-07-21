@@ -284,32 +284,32 @@ demo = {
 
   initMaterialWizard: function() {
     // Code for the Validator
-    var $validator = $('.card-wizard form').validate({
-      rules: {
-        firstname: {
-          required: true,
-          minlength: 3
-        },
-        lastname: {
-          required: true,
-          minlength: 3
-        },
-        email: {
-          required: true,
-          minlength: 3,
-        }
-      },
-
-      highlight: function(element) {
-        $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
-      },
-      success: function(element) {
-        $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
-      },
-      errorPlacement: function(error, element) {
-        $(element).append(error);
-      }
-    });
+    // var $validator = $('.card-wizard form').validate({
+    //   rules: {
+    //     firstname: {
+    //       required: true,
+    //       minlength: 3
+    //     },
+    //     lastname: {
+    //       required: true,
+    //       minlength: 3
+    //     },
+    //     email: {
+    //       required: true,
+    //       minlength: 3,
+    //     }
+    //   },
+    //
+    //   highlight: function(element) {
+    //     $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+    //   },
+    //   success: function(element) {
+    //     $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+    //   },
+    //   errorPlacement: function(error, element) {
+    //     $(element).append(error);
+    //   }
+    // });
 
 
 
