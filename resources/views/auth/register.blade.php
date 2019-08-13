@@ -82,7 +82,7 @@
                                                                     (required)</label>
                                                                 <input type="email"
                                                                        class="form-control {{ $errors->has('spaemail') ? ' is-invalid' : '' }} "
-                                                                       id="spaemail" name="spaemail"
+                                                                       id="spaemail" name="email"
                                                                        value="{{ old('spaemail') }}" required>
                                                                 {{--                                                                @if ($errors->has('email'))--}}
                                                                 {{--                                                                    <span class="invalid-feedback" role="alert">--}}

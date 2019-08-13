@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -39,10 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-       // $this->middleware('secretary');
-
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,14 +50,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'spaname' => ['required', 'string', 'max:255'],
-            'spaemail' => ['required', 'string', 'email', 'max:255','unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255','unique:users'],
             'password' => ['required', 'string', 'max:255']
         ]);
     }
-
-//    'department'=>['required','string','min:1'],
-//            'sector'=>['required','string'],
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -73,18 +66,14 @@ class RegisterController extends Controller
         $time=Carbon::now()->format('YmdHs');
         $api_prefix=str_random(50);
         $api_key=$time.$api_prefix;
-
-
-
         return User::create([
             'name' => $data['spaname'],
-            'spaemail' =>$data['spaemail'],
-            'password' => Hash::make($data['password'])
+            'email' =>$data['email'],
+            'password' => Hash::make($data['password']),
+            'user_type'=>1,
+            'api_key'=>$api_key,
+            'last_login'=>date('Y-m-d'),
+            'is_active'=>1
         ]);
     }
-
-//     'department'=>$data['department'],
-//            'sector_name'=>$data['sector'],
-//'user_type'=>$data['usertype']
-// 'api_key'=>$api_key
 }

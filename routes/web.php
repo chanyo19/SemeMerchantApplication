@@ -11,9 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('login');
-// });
+ Route::get('/', function () {
+   return redirect('/login');
+ });
+
+
 
 //Auth::routes();
 
@@ -25,3 +27,12 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashBoardController@index')->name('dashboard');
 
+//Settings admin
+//setting up menu
+Route::get('/add-menu-item',[
+
+    'uses'=>'Settings\MenuController@index'
+])->middleware('auth');
+Route::post('addmenu',[
+    'uses'=>'Settings\MenuController@addMenu'
+])->middleware('auth');
