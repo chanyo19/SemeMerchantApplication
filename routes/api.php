@@ -32,6 +32,12 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
     Route::get('/services/{mid}',[
         'uses'=>'Api\MerchantController@getMerchantServices'
     ]);
+    Route::post('/appointment-customer',[
+        'uses'=>'Api\AppointmentController@addAppointmentFromCustomer'
+    ]);
+    Route::get('/my-appointments',[
+        'uses'=>'Api\AppointmentController@getMyAppointments'
+    ]);
 });
 
 //register new customer and generate api_token

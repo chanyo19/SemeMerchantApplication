@@ -57,7 +57,7 @@ class MerchantController extends Controller
 
          return response()->json(['services'=>$this->merchantRepository->getServicesBelongsToMerchant($mid),
 
-            ],200);
+         ],200);
 
     }
 

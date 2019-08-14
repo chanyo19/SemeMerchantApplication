@@ -25,7 +25,7 @@ class ServiceRepository implements ServiceRepositoryInterface{
      */
     public function addService(array $data)
     {
-        $mer_id=Auth::user()->id;
+        $mer_id=Merchant::where('email',Auth::user()->email)->first()->id;
         return Merchant::find($mer_id)->services()->attach($data['service'],['price' => $data['price']]);
         // TODO: Implement addService() method.
     }

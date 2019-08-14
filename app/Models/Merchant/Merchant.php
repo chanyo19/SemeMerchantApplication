@@ -4,6 +4,7 @@ namespace App\Models\Merchant;
 
 use App\Models\Customer\Customer;
 use App\Models\Services\Services;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Merchant extends Model
@@ -22,6 +23,12 @@ class Merchant extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function appointments(){
+        return $this->hasMany('App\Models\Appointment\Appointment','merchant_id','id')->where('date',Carbon::now()->format('Y-m-d'));
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function allappointments(){
         return $this->hasMany('App\Models\Appointment\Appointment','merchant_id','id');
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Api\Appointment\ApiAppointmentRepository;
+use App\Repositories\Api\Appointment\ApiAppointmentRepositoryInterface;
 use App\Repositories\Api\Customer\ApiCustomerRepository;
 use App\Repositories\Api\Customer\ApiCustomerRepositoryInterface;
 use App\Repositories\Api\Merchant\ApiMerchantRepository;
@@ -39,5 +41,6 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(ApiCustomerRepositoryInterface::class,ApiCustomerRepository::class);
         app()->bind(ApiMerchantRepositoryInterface::class,ApiMerchantRepository::class);
         app()->bind(ServiceRepositoryInterface::class,ServiceRepository::class);
+        app()->bind(ApiAppointmentRepositoryInterface::class,ApiAppointmentRepository::class);
     }
 }

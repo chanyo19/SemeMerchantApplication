@@ -54,3 +54,10 @@ Route::get('/add-service',[
 Route::post('/addservice',[
     'uses'=>'Service\ServiceController@store'
 ])->name('addservice');
+
+Route::get('view-my-history-appointments',[
+ 'uses'=>'Appointment\AppointmentController@index'
+]);
+Route::get('view-my-today-appointments',[
+    'uses'=>'Appointment\AppointmentController@todaymyappointments'
+]);
