@@ -79,4 +79,22 @@ class ApiMerchantRepository implements ApiMerchantRepositoryInterface {
 
 
     }
+
+    /**
+     * @param $mid
+     * @return mixed
+     */
+    public function getServicesBelongsToMerchant($mid)
+    {
+        // TODO: Implement getServicesBelongsToMerchant() method.
+        try{
+            $merchant=Merchant::findOrFail($mid);
+
+                return $merchant->services;
+
+        }catch (\Exception $x){
+            return 'merchant not found';
+        }
+
+    }
 }

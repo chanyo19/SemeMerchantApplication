@@ -18,4 +18,10 @@ interface ApiMerchantRepositoryInterface{
      * @return mixed
      */
     public function getAvailableTimeSlots($date, $id);
+
+    /**
+     * @param $mid
+     * @return mixed
+     */
+    public function getServicesBelongsToMerchant($mid);
 }

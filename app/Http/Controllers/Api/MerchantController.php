@@ -49,4 +49,16 @@ class MerchantController extends Controller
 
     }
 
+    /**
+     * @param $mid
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getMerchantServices($mid){
+
+         return response()->json(['services'=>$this->merchantRepository->getServicesBelongsToMerchant($mid),
+
+            ],200);
+
+    }
+
 }

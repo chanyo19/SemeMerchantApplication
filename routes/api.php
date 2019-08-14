@@ -29,6 +29,9 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
     Route::get('/merchant/{id}',[
         'uses'=>'Api\MerchantController@getMerchantData'
     ]);
+    Route::get('/services/{mid}',[
+        'uses'=>'Api\MerchantController@getMerchantServices'
+    ]);
 });
 
 //register new customer and generate api_token
