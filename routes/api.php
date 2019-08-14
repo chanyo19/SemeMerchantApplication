@@ -13,7 +13,26 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
+{
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::get('/merchants',[
+        'uses'=>'Api\MerchantController@getMerchants'
+    ]);
+    Route::get('/merchants',[
+        'uses'=>'Api\MerchantController@getMerchants'
+    ]);
+    Route::get('/merchant/{id}',[
+        'uses'=>'Api\MerchantController@getMerchantData'
+    ]);
 });
+
+//register new customer and generate api_token
+Route::post('/register-customer', [
+    'uses'=>'Api\CustomerRegistrationController@addCutomerUser'
+]);
 

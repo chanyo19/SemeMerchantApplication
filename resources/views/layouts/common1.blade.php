@@ -132,7 +132,7 @@
                     <div class="collapse" id="pagesExamples">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/uploaddoc">
+                                <a class="nav-link" href="/add-service">
                                     <span class="sidebar-mini"> S </span>
                                     <span class="sidebar-normal"> Services </span>
                                 </a>

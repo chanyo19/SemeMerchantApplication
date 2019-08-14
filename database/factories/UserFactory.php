@@ -23,3 +23,13 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\Models\Services\Services::class, function (Faker $faker) {
+
+        return [
+            'service' => 'service '.$faker->word,
+        ];
+
+
+});
+
+

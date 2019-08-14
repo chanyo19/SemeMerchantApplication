@@ -46,3 +46,11 @@ Route::post('/add-customer-merchant',[
 Route::get('/view-my-customers',[
     'uses'=>'Customer\CustomerController@mycustomers'
 ]);
+
+//add services
+Route::get('/add-service',[
+    'uses'=>'Service\ServiceController@index'
+]);
+Route::post('/addservice',[
+    'uses'=>'Service\ServiceController@store'
+])->name('addservice');

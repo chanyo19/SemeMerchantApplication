@@ -3,6 +3,7 @@
 namespace App\Models\Merchant;
 
 use App\Models\Customer\Customer;
+use App\Models\Services\Services;
 use Illuminate\Database\Eloquent\Model;
 
 class Merchant extends Model
@@ -22,5 +23,12 @@ class Merchant extends Model
      */
     public function appointments(){
         return $this->hasMany('App\Models\Appointment\Appointment','merchant_id','id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function services(){
+        return $this->belongsToMany(Services::class)->withPivot('price')->withTimestamps();
     }
 }

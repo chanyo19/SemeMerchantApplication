@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'email' =>$data['email'],
             'password' => Hash::make($data['password']),
             'user_type'=>1,
-            'api_key'=>$api_key,
+            'api_token'=>$api_key,
             'last_login'=>date('Y-m-d'),
             'is_active'=>1
         ]);
