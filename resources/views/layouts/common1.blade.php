@@ -117,7 +117,7 @@
             </div>
             <ul class="nav">
                 <li class="nav-item active ">
-                    <a class="nav-link" href="/home">
+                    <a class="nav-link" href="/dashboard">
                         <i class="material-icons">dashboard</i>
                         <p> Dashboard </p>
                     </a>
@@ -169,13 +169,19 @@
                     <div class="collapse" id="fileExplorer">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/view-file-browser">
+                                <a class="nav-link" href="/view-my-today-appointments">
                                     <span class="sidebar-mini"> T </span>
                                     <span class="sidebar-normal">Todays Appointments </span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="/view-file-browser">
+                                <a class="nav-link" href="/view-all-my-appointments">
+                                    <span class="sidebar-mini"> T </span>
+                                    <span class="sidebar-normal">Todays Appointments </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/view-my-history-appointments">
                                     <span class="sidebar-mini"> H </span>
                                     <span class="sidebar-normal">History Appointments </span>
                                 </a>

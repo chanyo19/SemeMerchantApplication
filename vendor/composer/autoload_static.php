@@ -502,9 +502,11 @@ class ComposerStaticInitdca64bd1c621b30a3011ad529f1772c3
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Appointment\\Appointment' => __DIR__ . '/../..' . '/app/Models/Appointment/Appointment.php',
         'App\\Models\\Customer\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer/Customer.php',
         'App\\Models\\Menu' => __DIR__ . '/../..' . '/app/Models/Menu.php',
         'App\\Models\\Merchant\\Merchant' => __DIR__ . '/../..' . '/app/Models/Merchant/Merchant.php',
+        'App\\Models\\TimeSlot\\Timeslot' => __DIR__ . '/../..' . '/app/Models/TimeSlot/Timeslot.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -4375,6 +4377,7 @@ class ComposerStaticInitdca64bd1c621b30a3011ad529f1772c3
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'timeslot' => __DIR__ . '/../..' . '/database/seeds/timeslot.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
