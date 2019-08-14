@@ -31,7 +31,8 @@
                 <!--Hub Customer Modal-->
                 <div class="modal fade" id="hubCustomerAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
-                    <form id="createCus" action="" method="">
+                    <form id="createCus" action="{{route('add-customer-merchant')}}" method="post">
+                        {{csrf_field()}}
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class=" card-profile">
@@ -50,7 +51,7 @@
                                         </span>
                                     </div>
                                     <div class="form-group" style="width: 85%; padding-bottom: 0px;">
-                                    <input type="text" class="form-control" name="fullName" placeholder="Full Name"  required="true">
+                                    <input type="text" class="form-control" name="name" placeholder="Full Name"  required="true">
                                     </div>
                                 </div>
                                 </span>
@@ -62,7 +63,7 @@
                                              </span>
                                          </div>
                                          <div class="form-group" style="width: 85%; padding-bottom: 0px;">
-                                        <input type="text" class="form-control" name="currentCity" placeholder="Current City"  required="true">
+                                        <input type="text" class="form-control" name="city" placeholder="Current City"  required="true">
                                          </div>
                                     </div>
                                </span>
@@ -74,7 +75,7 @@
                                              </span>
                                          </div>
                                          <div class="form-group" style="width: 85%; padding-bottom: 0px;">
-                                        <input type="text" class="form-control" name="Caddress" placeholder="Address"  required="true">
+                                        <input type="text" class="form-control" name="address" placeholder="Address"  required="true">
                                          </div>
                                     </div>
                                 </span>
@@ -86,7 +87,7 @@
                                              </span>
                                          </div>
                                          <div class="form-group" style="width: 85%; padding-bottom: 0px;">
-                                        <input type="text" class="form-control" name="mobileNo" placeholder="Mobile Number"  required="true">
+                                        <input type="text" class="form-control" name="mobile" placeholder="Mobile Number"  required="true">
                                          </div>
                                     </div>
                                     </span>
@@ -98,13 +99,13 @@
                                              </span>
                                          </div>
                                         <div class="form-group" style="width: 85%; padding-bottom: 0px;">
-                                        <input type="text" class="form-control" name="CEmail" placeholder="Email" email="true"
+                                        <input type="text" class="form-control" name="email" placeholder="Email" email="true"
                                                required="true">
                                         </div>
                                     </div>
                                     </span>
 
-                                        <a href="#pablo" class="btn btn-info mt-4">Create</a>
+                                        <button type="submit" class="btn btn-info mt-4">Create</button>
                                         <a href="#pablo" class="btn btn-default btn-link mt-4"
                                            data-dismiss="modal">Close</a>
                                     </div>

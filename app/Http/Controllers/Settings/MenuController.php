@@ -29,12 +29,16 @@ class MenuController extends Controller
 
         return view('setting.menu-add');
     }
-    /**
-     *
-     */
-    public function addMenu(){
 
-        $data=$this->request()->all();
+    /**
+     * @param Request $request
+     */
+    public function addMenu(Request $request){
+
+        if($request){
+            $this->menuRepository->addMenu($request->only(['menu_name','route','order']));
+        }
+
 
     }
 }

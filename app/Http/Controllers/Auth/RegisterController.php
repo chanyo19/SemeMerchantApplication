@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Merchant\Merchant;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
@@ -66,6 +67,7 @@ class RegisterController extends Controller
         $time=Carbon::now()->format('YmdHs');
         $api_prefix=str_random(50);
         $api_key=$time.$api_prefix;
+        $merchant=$this->addMerchant($data);
         return User::create([
             'name' => $data['spaname'],
             'email' =>$data['email'],
@@ -76,4 +78,21 @@ class RegisterController extends Controller
             'is_active'=>1
         ]);
     }
+
+    /**
+     * @param array $data
+     * @return
+     */
+    protected function addMerchant(array $data){
+         Merchant::create([
+              'merchant_name' => $data['spaname'],
+              'email' =>$data['email'],
+              'city'=>'Colombo',
+              'location'=>'68.98,6.98',
+              'address'=>'Colombo,Nugegoda',
+              'mobile_number'=>'0712148820',
+
+        ]);
+    }
+
 }

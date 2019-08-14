@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Customer\CustomerRepository;
+use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Repositories\Settings\Menu\MenuRepository;
 use App\Repositories\Settings\Menu\MenuRepositoryInterface;
 use Illuminate\Support\Facades\Schema;
@@ -27,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         app()->bind(MenuRepositoryInterface::class,MenuRepository::class);
+        app()->bind(CustomerRepositoryInterface::class,CustomerRepository::class);
     }
 }

@@ -14,7 +14,7 @@
                         <div class="card card-login card-hidden" >
 <!--                            style="height: 450px"-->
                             <div class="card-header card-header-rose text-center">
-                                <h4 class="card-title">SPAHUB</h4>
+                                <h4 class="card-title">SPAHUBs</h4>
                             </div>
                             <div class="card-body  text-center">
                                 <p class="card-description text-center">Welcome Back! Please Login to your Account </p>
@@ -23,7 +23,7 @@
 <!--                                   <input type="text" class="form-control" placeholder="Mobile Number">-->
                                       <input id="email" type="email"
                                              class="form-control{{ $errors->has('spaemail') ? ' is-invalid' : '' }}"
-                                             name="spaemail" placeholder="Email" value="{{ old('spaemail') }}" required
+                                             name="email" placeholder="Email" value="{{ old('spaemail') }}" required
                                              autofocus>
 
                                 @if ($errors->has('spaemail'))

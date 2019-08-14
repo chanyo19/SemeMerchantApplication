@@ -36,3 +36,13 @@ Route::get('/add-menu-item',[
 Route::post('addmenu',[
     'uses'=>'Settings\MenuController@addMenu'
 ])->middleware('auth');
+
+//Add customer to merchant
+Route::post('/add-customer-merchant',[
+    'uses'=>'Customer\CustomerController@addCutomerToMerchant'
+])->name('add-customer-merchant')->middleware('auth');
+
+//view all customers belongs to spa
+Route::get('/view-my-customers',[
+    'uses'=>'Customer\CustomerController@mycustomers'
+]);
