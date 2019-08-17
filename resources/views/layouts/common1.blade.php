@@ -117,7 +117,7 @@
             </div>
             <ul class="nav">
                 <li class="nav-item active ">
-                    <a class="nav-link" href="/dashboard">
+                    <a class="nav-link" href="{{url('/dashboard')}}">
                         <i class="material-icons">dashboard</i>
                         <p> Dashboard </p>
                     </a>
@@ -132,7 +132,7 @@
                     <div class="collapse" id="pagesExamples">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/add-service">
+                                <a class="nav-link" href="{{url('/add-service')}}">
                                     <span class="sidebar-mini"> S </span>
                                     <span class="sidebar-normal"> Services </span>
                                 </a>
@@ -169,19 +169,19 @@
                     <div class="collapse" id="fileExplorer">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/view-my-today-appointments">
+                                <a class="nav-link" href="{{url('/view-my-today-appointments')}}">
                                     <span class="sidebar-mini"> T </span>
                                     <span class="sidebar-normal">Todays Appointments </span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="/view-all-my-appointments">
+                                <a class="nav-link" href="{{url('/view-all-my-appointments')}}">
                                     <span class="sidebar-mini"> T </span>
                                     <span class="sidebar-normal">Todays Appointments </span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="/view-my-history-appointments">
+                                <a class="nav-link" href="{{url('/view-my-history-appointments')}}">
                                     <span class="sidebar-mini"> H </span>
                                     <span class="sidebar-normal">History Appointments </span>
                                 </a>
@@ -203,7 +203,7 @@
                     <div class="collapse" id="settings">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/view-my-customers">
+                                <a class="nav-link" href="{{url('/view-my-customers')}}">
                                     <span class="sidebar-mini"> C </span>
                                     <span class="sidebar-normal">All customers</span>
                                 </a>
