@@ -29,7 +29,6 @@ $factory->define(App\Models\Services\Services::class, function (Faker $faker) {
             'service' => 'service '.$faker->word,
         ];
 
-
 });
 
 
