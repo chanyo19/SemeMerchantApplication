@@ -12,17 +12,13 @@ class ApiCustomerRepository implements ApiCustomerRepositoryInterface {
      */
     public function registerUser(array $data)
     {
-        $time=Carbon::now()->format('YmdHs');
-        $api_prefix=str_random(50);
-        $api_key=$time.$api_prefix;
         $this->addCustomer($data);
         // TODO: Implement registerUser() method.
-        return User::create([
+        return User::updateOrCreate([
             'name' => $data['full_name'],
             'email' =>$data['email'],
             'password' => Hash::make($data['password']),
             'user_type'=>2,
-            'api_token'=>$api_key,
             'last_login'=>date('Y-m-d'),
             'is_active'=>1
         ]);
@@ -32,10 +28,10 @@ class ApiCustomerRepository implements ApiCustomerRepositoryInterface {
      * @return mixed
      */
     public function addCustomer(array $data){
-         Customer::create([
+         Customer::updateOrCreate([
             'full_name' => $data['full_name'],
             'city' =>$data['city'],
-            'address'=>date('Y-m-d'),
+            'address'=>$data['city'],
             'mobile_number'=>$data['mobile_number'],
             'email'=>$data['email'],
             'status'=>1

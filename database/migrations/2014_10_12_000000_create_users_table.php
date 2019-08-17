@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('user_type')->default(1);
             $table->boolean('is_verified')->default(0);
-            $table->string('api_token')->unique()->nullable();
             $table->dateTime('last_login')->nullable();
             $table->boolean('is_active')->default(1);
             $table->softDeletes();

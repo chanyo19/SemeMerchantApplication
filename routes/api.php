@@ -41,12 +41,16 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
         Route::get('/my-appointments',[
             'uses'=>'Api\AppointmentController@getMyAppointments'
         ]);
+        Route::get('/logout','Api\CustomerRegistrationController@logoutCustomer');
     });
 
 });
 
 //register new customer and generate api_token
 Route::post('/register-customer', [
-    'uses'=>'Api\CustomerRegistrationController@addCutomerUser'
+    'uses'=>'Api\CustomerRegistrationController@addCustomerUser'
 ]);
-
+//register new customer and generate api_token
+Route::post('/login-customer', [
+    'uses'=>'Api\CustomerRegistrationController@loginCustomerUser'
+]);
