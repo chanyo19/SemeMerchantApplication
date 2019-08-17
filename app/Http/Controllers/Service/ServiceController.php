@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Service;
 
-use App\Models\Services\Services;
 use App\Repositories\Service\ServiceRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,8 +27,9 @@ class ServiceController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
-        $Service_data = [
-            'services'  => Services::all(),
+          $Service_data = [
+              //getting differece collection of all services from my services
+            'services'=>$diff=$this->serviceRepository->getAllServices()->diff($this->serviceRepository->getMyServices()),
             'myServicers'=>$this->serviceRepository->getMyServices()
         ];
 

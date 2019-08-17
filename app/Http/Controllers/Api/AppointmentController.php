@@ -28,8 +28,12 @@ class AppointmentController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function addAppointmentFromCustomer(Request $request){
+        try{
+            return response()->json(['response'=>$this->appointmentRepository->addCustomerAppointmentRequest($request->all())],200);
+        }catch (\Exception $exception){
+            return response()->json(['response'=>0],404);
+        }
 
-        return response()->json(['response'=>$this->appointmentRepository->addCustomerAppointmentRequest($request->all())],200);
     }
 
     /**

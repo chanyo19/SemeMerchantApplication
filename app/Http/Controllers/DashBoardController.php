@@ -5,12 +5,8 @@
  * Date: 7/6/2019
  * Time: 3:50 PM
  */
-
 namespace App\Http\Controllers;
-
-
 use App\Repositories\Appointment\AppointmentRepositoryInterface;
-
 class DashBoardController extends Controller
 {
     /**

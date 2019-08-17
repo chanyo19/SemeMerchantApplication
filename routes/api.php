@@ -20,24 +20,29 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::get('/merchants',[
-        'uses'=>'Api\MerchantController@getMerchants'
-    ]);
-    Route::get('/merchants',[
-        'uses'=>'Api\MerchantController@getMerchants'
-    ]);
-    Route::get('/merchant/{id}',[
-        'uses'=>'Api\MerchantController@getMerchantData'
-    ]);
-    Route::get('/services/{mid}',[
-        'uses'=>'Api\MerchantController@getMerchantServices'
-    ]);
-    Route::post('/appointment-customer',[
-        'uses'=>'Api\AppointmentController@addAppointmentFromCustomer'
-    ]);
-    Route::get('/my-appointments',[
-        'uses'=>'Api\AppointmentController@getMyAppointments'
-    ]);
+    Route::group(['prefix'=>'merchant'],function(){
+
+        Route::get('/merchants',[
+            'uses'=>'Api\MerchantController@getMerchants'
+        ]);
+        Route::get('/merchant/{id}',[
+            'uses'=>'Api\MerchantController@getMerchantData'
+        ]);
+        Route::get('/services/{mid}',[
+            'uses'=>'Api\MerchantController@getMerchantServices'
+        ]);
+    });
+
+    Route::group(['prefix'=>'customer'],function (){
+
+        Route::post('/add-appointment',[
+            'uses'=>'Api\AppointmentController@addAppointmentFromCustomer'
+        ]);
+        Route::get('/my-appointments',[
+            'uses'=>'Api\AppointmentController@getMyAppointments'
+        ]);
+    });
+
 });
 
 //register new customer and generate api_token
