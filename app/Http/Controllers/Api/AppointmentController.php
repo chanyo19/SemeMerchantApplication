@@ -43,9 +43,16 @@ class AppointmentController extends Controller
      * @return
      */
     public function getMyAppointments(Request $request){
-        return Appointment::where([
+        $appointments= Appointment::where([
             'customer_id' => $this->getCustomerfromRequest($request->user()),
             'status' => 1,
         ])->get();
+        if($appointments){
+            return response()->json(['appointments'=>$appointments],200);
+        }else{
+            return response()->json(['error'=>0],401);
+        }
+
+
     }
 }
