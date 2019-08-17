@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Appointment\Appointment;
 use App\Repositories\Api\Appointment\ApiAppointmentRepository;
+use App\Traits\CustomerTrait;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AppointmentController extends Controller
 {
+    use CustomerTrait;
     /**
      * @var ApiAppointmentRepository
      */
@@ -42,7 +44,7 @@ class AppointmentController extends Controller
      */
     public function getMyAppointments(Request $request){
         return Appointment::where([
-            'customer_id' => 4,
+            'customer_id' => $this->getCustomerfromRequest($request->user()),
             'status' => 1,
         ])->get();
     }
