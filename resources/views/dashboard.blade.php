@@ -1,19 +1,7 @@
 @extends('layouts.common1')
-
 @section('links')
-
-
 @endsection
 @section('content')
-
-<!--<div class="row">-->
-<!--    <div class="col-md-9 ml-0 mr-10">-->
-<!--        <h2>Apoinments</h2>-->
-<!--    </div>-->
-<!--    <div class="col-md-3">-->
-<!--        <h2>Upcoming</h2>-->
-<!--    </div>-->
-<!--</div>-->
 <div class="row">
     <div class="col-md-8 ml-0 mr-10">
         <div class="card card-calendar">
@@ -191,150 +179,38 @@
         <!--       card view container of today upcoming appoinments ------>
         <div class="row scrollbar">
             <!--     singal  card view ------>
-            <div class="card card-wtb col-11  ml-auto mr-auto">
-                <div class="row">
-                    <div class="col-md-3 hub-img-container img-responsive">
-                        <img class="hub-img" src="{{asset('assets/img/faces/marc.jpg')}}"/>
-                    </div>
-                    <div class="col-md-7 mt-3" style="align-self: center">
-                        <p class="hub-pading-0"><b>Mike Davis</b></p>
-                        <p class="hub-pading-0">Time : 9:00 AM</p>
-                    </div>
-                    <div class="col-md-2 hub-img-container">
+
+            @if(count($appointments)>0)
+                <h3>Today's Appointments</h3>
+                @foreach($appointments as $appointment)
+                    <div class="card card-wtb col-11  ml-auto mr-auto">
                         <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-info btn-link">
-                                <i class="material-icons">edit</i>
-                            </button>
+                            <div class="col-md-3 hub-img-container img-responsive">
+                                <img class="hub-img" src="{{asset('assets/img/faces/marc.jpg')}}"/>
+                            </div>
+                            <div class="col-md-7 mt-3" style="align-self: center">
+                                <p class="hub-pading-0"><b>{{$appointment->customer->full_name}}</b></p>
+                                <p class="hub-pading-0">{{$appointment->timeslot->slot_info}} AM</p>
+                            </div>
+                            <div class="col-md-2 hub-img-container">
+                                <div class="row">
+                                    <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="btn hub-btn-cancel btn-info btn-link">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
             <!--            end of singal card ---->
 
-            <div class="card card-wtb col-11  ml-auto mr-auto">
-                <div class="row">
-                    <div class="col-md-3 hub-img-container img-responsive">
-                        <img class="hub-img" src="{{asset('assets/img/faces/avatar.jpg')}}"/>
-                    </div>
-                    <div class="col-md-7 mt-3" style="align-self: center">
-                        <p class="hub-pading-0"><b>Avanthi Tharuka</b></p>
-                        <p class="hub-pading-0">Time : 10:00 AM </p>
-                    </div>
-                    <div class="col-md-1 hub-img-container">
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-info btn-link">
-                                <i class="material-icons">edit</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="card card-wtb col-11  ml-auto mr-auto">
-                <div class="row">
-                    <div class="col-md-3 hub-img-container img-responsive">
-                        <img class="hub-img" src="{{asset('assets/img/faces/marc.jpg')}}"/>
-                    </div>
-                    <div class="col-md-7 mt-3" style="align-self: center">
-                        <p class="hub-pading-0"><b>Damith Thiwanka</b></p>
-                        <p class="hub-pading-0">Time : 9:00 AM</p>
-                    </div>
-                    <div class="col-md-1 hub-img-container">
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-info btn-link">
-                                <i class="material-icons">edit</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-wtb col-11  ml-auto mr-auto">
-                <div class="row">
-                    <div class="col-md-3 hub-img-container img-responsive">
-                        <img class="hub-img" src="{{asset('assets/img/faces/Heshan.jpg')}}"/>
-                    </div>
-                    <div class="col-md-7 mt-3" style="align-self: center">
-                        <p class="hub-pading-0"><b>Adam Franco</b></p>
-                        <p class="hub-pading-0">Time : 9:00 AM</p>
-                    </div>
-                    <div class="col-md-1 hub-img-container">
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-info btn-link">
-                                <i class="material-icons">edit</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-wtb col-11  ml-auto mr-auto">
-                <div class="row">
-                    <div class="col-md-3 hub-img-container img-responsive">
-                        <img class="hub-img" src="{{asset('assets/img/faces/card-profile1-square.jpg')}}"/>
-                    </div>
-                    <div class="col-md-7 mt-3" style="align-self: center">
-                        <p class="hub-pading-0"><b>Damith Thiwanka</b></p>
-                        <p class="hub-pading-0">Time : 9:00 AM</p>
-                    </div>
-                    <div class="col-md-1 hub-img-container">
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-info btn-link">
-                                <i class="material-icons">edit</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-wtb col-11  ml-auto mr-auto">
-                <div class="row">
-                    <div class="col-md-3 hub-img-container img-responsive">
-                        <img class="hub-img" src="{{asset('assets/img/faces/card-profile2-square.jpg')}}"/>
-                    </div>
-                    <div class="col-md-7 mt-3" style="align-self: center">
-                        <p class="hub-pading-0"><b>Damith Thiwanka</b></p>
-                        <p class="hub-pading-0">Time : 9:00 AM</p>
-                    </div>
-                    <div class="col-md-1 hub-img-container">
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-danger btn-link">
-                                <i class="material-icons">close</i>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn hub-btn-cancel btn-info btn-link">
-                                <i class="material-icons">edit</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <!--       end of Card  container------>
 

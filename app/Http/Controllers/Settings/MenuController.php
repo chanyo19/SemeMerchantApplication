@@ -19,6 +19,7 @@ class MenuController extends Controller
      */
     public function __construct(MenuRepositoryInterface $menuRepository)
     {
+        $this->middleware('auth');
         $this->menuRepository = $menuRepository;
     }
 

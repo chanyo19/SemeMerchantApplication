@@ -3,12 +3,15 @@ namespace App\Repositories\Customer;
 use App\Models\Customer\Customer;
 use App\Models\Merchant\Merchant;
 use App\Models\User;
+use App\Traits\MerchantTrait;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerRepository implements CustomerRepositoryInterface{
+    use MerchantTrait;
     /**
+     *
      * @var Merchant
      */
     private $merchant;
@@ -79,6 +82,6 @@ class CustomerRepository implements CustomerRepositoryInterface{
     {
 
         // TODO: Implement getMyCustomers() method.
-        return Merchant::findOrFail(Auth::user()->id)->customers;
+        return $this->merchant->findOrFail($this->getMerchant())->customers;
     }
 }

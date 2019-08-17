@@ -2,21 +2,41 @@
 
 namespace App\Http\Controllers\Appointment;
 
-use App\Models\Merchant\Merchant;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Repositories\Appointment\AppointmentRepositoryInterface;
+use App\Traits\MerchantTrait;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
+    use MerchantTrait;
+    /**
+     * @var AppointmentRepositoryInterface
+     */
+    private $appointmentRepository;
+
+    /**
+     * AppointmentController constructor.
+     * @param AppointmentRepositoryInterface $appointmentRepository
+     */
+    public function __construct(AppointmentRepositoryInterface $appointmentRepository)
+    {
+        $this->middleware('auth');
+        $this->appointmentRepository = $appointmentRepository;
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(){
 
-        $appointments=Merchant::findOrFail(Merchant::where('email',Auth::user()->email)->first()->id)->allappointments;
-      return view('appointment.appointment-history')->with('appointments',$appointments);
+      return view('appointment.appointment-history')->with('appointments',$this->appointmentRepository->getMyAppointmentHistory());
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function todaymyappointments(){
-        $appointments=Merchant::findOrFail(Merchant::where('email',Auth::user()->email)->first()->id)->appointments;
-        return view('appointment.appointment-today')->with('appointments',$appointments);
+        return view('appointment.appointment-today')->with('appointments',$this->appointmentRepository->getMyTodayAppointments());
     }
 }
