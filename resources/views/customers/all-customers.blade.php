@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-body">
-                    <h4 class="m-b-30 m-t-0">Customer of {{\Illuminate\Support\Facades\Auth::user()->merchant_name}}</h4>
+                    <h4 class="m-b-30 m-t-0">Customer of {{\Illuminate\Support\Facades\Auth::user()->name}}</h4>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">

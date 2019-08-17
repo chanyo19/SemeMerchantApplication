@@ -7,4 +7,5 @@ interface ServiceRepositoryInterface{
      * @return mixed
      */
     public function addService(array $data);
+    public function getMyServices();
 }

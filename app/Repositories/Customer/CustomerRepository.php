@@ -77,7 +77,6 @@ class CustomerRepository implements CustomerRepositoryInterface{
      */
     public function getMyCustomers()
     {
-
         // TODO: Implement getMyCustomers() method.
         return Merchant::findOrFail(Auth::user()->id)->customers;
     }

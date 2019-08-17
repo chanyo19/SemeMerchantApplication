@@ -27,7 +27,12 @@ class ServiceController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
-        return view('services.add-service')->with('services',Services::all());
+        $Service_data = [
+            'services'  => Services::all(),
+            'myServicers'=>$this->serviceRepository->getMyServices()
+        ];
+
+        return view('services.add-service')->with($Service_data);
     }
 
     /**
