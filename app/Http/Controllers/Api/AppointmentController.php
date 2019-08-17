@@ -41,10 +41,8 @@ class AppointmentController extends Controller
      * @return
      */
     public function getMyAppointments(Request $request){
-
-
         return Appointment::where([
-            'customer_id' => $request->user()->id,
+            'customer_id' => 4,
             'status' => 1,
         ])->get();
     }
