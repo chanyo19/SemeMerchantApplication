@@ -14,7 +14,7 @@ class CreateMerchantServiceTable extends Migration
     public function up()
     {
         Schema::create('merchant_services', function (Blueprint $table) {
-            $table->primary(['merchant_id','service_id']);
+            $table->primary(['merchant_id','services_id']);
             $table->integer('merchant_id')->unsigned();
             $table->integer('services_id')->unsigned();
             $table->double('price')->default(0);
