@@ -20,6 +20,7 @@ class ServiceController extends Controller
      */
     public function __construct(ServiceRepositoryInterface $serviceRepository)
     {
+        $this->middleware('auth');
         $this->serviceRepository = $serviceRepository;
     }
 

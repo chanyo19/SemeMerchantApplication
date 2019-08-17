@@ -20,6 +20,7 @@ class CustomerController extends Controller
      */
     public function __construct(CustomerRepositoryInterface $customerRepository)
     {
+        $this->middleware('auth');
         $this->customerRepository = $customerRepository;
     }
 
@@ -41,7 +42,8 @@ class CustomerController extends Controller
      *get my customers
      */
     public function mycustomers(){
-        return view('customers.all-customers')->with('customers',$this->customerRepository->getMyCustomers());
+        $customers=$this->customerRepository->getMyCustomers();
+        return view('customers.all-customers')->with('customers',$customers);
 
     }
 }
