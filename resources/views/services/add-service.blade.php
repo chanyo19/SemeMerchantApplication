@@ -1,5 +1,5 @@
 @extends('layouts.common1')
-
+@inject('ServiceController', 'App\Http\Controllers\Service\ServiceController')
 @section('links')
 @endsection
 @section('content')
@@ -54,7 +54,8 @@
                                     </td>
                                     <td>{{$servicers->pivot->created_at}}</td>
                                     <td>{{\Carbon\Carbon::parse($servicers->pivot->updated_at)->diffForHumans()}} | {{$servicers->pivot->updated_at}}</td>
-                                    <td></td>
+<!--                                    <td> <input  type="button" class="btn btn-danger btn-block" value="Delete" onclick="{{$ServiceController->delete($servicers->pivot->services_id)}}"/></td>-->
+<!--                                    <td><a href="{{$ServiceController->delete($servicers->pivot->services_id)}}" class="editor_remove">{{$servicers->pivot->services_id}} Delete</a></td>-->
 
                                 </tr>
                             @endforeach
@@ -69,7 +70,8 @@
 @section('scripts')
 
     <script>
-        $('#audit_table').DataTable({
+
+        var serviseTable= $('#audit_table').DataTable({
 
             dom: 'Bfrtip',
             buttons: [
@@ -80,5 +82,6 @@
                 'print'
             ]
         });
+
     </script>
 @endsection

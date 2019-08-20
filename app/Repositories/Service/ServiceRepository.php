@@ -37,6 +37,17 @@ class ServiceRepository implements ServiceRepositoryInterface{
         // TODO: Implement addService() method.
     }
 
+    /**delete service
+     * @param array $data
+     * @return mixed
+     */
+    public function deleteService( $data)
+    {
+
+        return $this->merchant->findOrFail($this->getMerchant())->services()->detach($data);
+        // TODO: Implement addService() method.
+    }
+
     /**get my services
      * @return mixed
      */
