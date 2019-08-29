@@ -5,5 +5,5 @@ interface ApiAppointmentRepositoryInterface{
      * @param array $data
      * @return mixed
      */
-    public function addCustomerAppointmentRequest(array $data);
+    public function addCustomerAppointmentRequest(array $data,$cus_id);
 }

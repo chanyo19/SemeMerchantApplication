@@ -31,7 +31,7 @@ class AppointmentController extends Controller
      */
     public function addAppointmentFromCustomer(Request $request){
         try{
-            return response()->json(['response'=>$this->appointmentRepository->addCustomerAppointmentRequest($request->all())],200);
+            return response()->json(['response'=>$this->appointmentRepository->addCustomerAppointmentRequest($request->all(),$this->getCustomerfromRequest($request->user()))],200);
         }catch (\Exception $exception){
             return response()->json(['response'=>0],404);
         }
@@ -44,8 +44,8 @@ class AppointmentController extends Controller
      */
     public function getMyAppointments(Request $request){
         $appointments= Appointment::where([
-            //'customer_id' => $this->getCustomerfromRequest($request->user()),
-            'customer_id' => $request->user()->id,
+            'customer_id' => $this->getCustomerfromRequest($request->user()),
+           // 'customer_id' => $request->user()->id,
             'status' => 1,
         ])->get();
         if($appointments){

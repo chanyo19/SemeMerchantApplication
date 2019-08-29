@@ -22,4 +22,5 @@ trait CustomerTrait
         return Customer::where('email',$user->email)->first()->id;
     }
 
+
 }

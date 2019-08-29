@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    protected $fillable=['merchant_id','customer_id','slot_id','date','status','special_note','amount'];
+    protected $fillable=['merchant_id','customer_id','slot_id','date','status','special_note','amount','services'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
