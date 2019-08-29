@@ -44,7 +44,8 @@ class AppointmentController extends Controller
      */
     public function getMyAppointments(Request $request){
         $appointments= Appointment::where([
-            'customer_id' => $this->getCustomerfromRequest($request->user()),
+            //'customer_id' => $this->getCustomerfromRequest($request->user()),
+            'customer_id' => $request->user()->id,
             'status' => 1,
         ])->get();
         if($appointments){
