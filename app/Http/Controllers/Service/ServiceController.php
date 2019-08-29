@@ -50,4 +50,19 @@ class ServiceController extends Controller
         return redirect()->back();
     }
 
+    /**
+     *Delete service for a  merchant
+     * @param Request $request
+     * @return mixed
+     */
+    public function delete($request){
+        if($this->serviceRepository->deleteService($request))
+        {
+            return redirect()->back();
+        }
+        return redirect()->back();
+    }
+
+
+
 }

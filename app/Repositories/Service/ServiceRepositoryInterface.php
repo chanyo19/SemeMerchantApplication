@@ -8,6 +8,12 @@ interface ServiceRepositoryInterface{
      */
     public function addService(array $data);
 
+    /**delete services
+     * @param array $data
+     * @return mixed
+     */
+    public function deleteService( $data);
+
     /**get my services
      * @return mixed
      */
