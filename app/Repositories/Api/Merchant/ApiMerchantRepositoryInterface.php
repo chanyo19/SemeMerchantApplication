@@ -24,4 +24,10 @@ interface ApiMerchantRepositoryInterface{
      * @return mixed
      */
     public function getServicesBelongsToMerchant($mid);
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function getMerchantsByQuery($name);
 }

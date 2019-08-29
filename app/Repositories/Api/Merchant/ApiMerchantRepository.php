@@ -97,4 +97,16 @@ class ApiMerchantRepository implements ApiMerchantRepositoryInterface {
         }
 
     }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function getMerchantsByQuery($name)
+    {
+        // TODO: Implement getMerchantsByQuery() method.
+        return $this->merchant::where('merchant_name','LIKE','%'.$name.'%')
+            ->orWhere('city','LIKE','%'.$name.'%')
+            ->get();
+    }
 }

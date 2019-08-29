@@ -35,6 +35,17 @@ class MerchantController extends Controller
     }
 
     /**
+     *Get merchants by query
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getMerchantByQuery(Request $request){
+
+        return response()->json(['merchants'=>$this->merchantRepository->getMerchantsByQuery($request->search_string)],200);
+
+    }
+
+    /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
