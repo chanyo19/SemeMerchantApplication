@@ -1,5 +1,4 @@
 @extends('layouts.common1')
-@inject('ServiceController', 'App\Http\Controllers\Service\ServiceController')
 @section('links')
 @endsection
 @section('content')
@@ -9,7 +8,7 @@
             <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Single Select"
                     name="service" required>
                 <option disabled selected>Select Service</option>
-                @foreach($services as $service)
+                @foreach($data['services'] as $service)
                     <option value="{{$service->id}}">{{$service->service}}</option>
                 @endforeach
             </select>
@@ -24,7 +23,7 @@
         </div>
     </form>
 
-    @if(count($myServicers)>0)
+    @if(count($data['myServicers'])>0)
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
@@ -41,7 +40,7 @@
 
                             </thead>
                             <tbody>
-                            @foreach($myServicers as $servicers)
+                            @foreach($data['myServicers'] as $servicers)
 
                                 <tr>
                                     <td>{{$servicers->service}}</td>
@@ -54,8 +53,7 @@
                                     </td>
                                     <td>{{$servicers->pivot->created_at}}</td>
                                     <td>{{\Carbon\Carbon::parse($servicers->pivot->updated_at)->diffForHumans()}} | {{$servicers->pivot->updated_at}}</td>
-<!--                                    <td> <input  type="button" class="btn btn-danger btn-block" value="Delete" onclick="{{$ServiceController->delete($servicers->pivot->services_id)}}"/></td>-->
-<!--                                    <td><a href="{{$ServiceController->delete($servicers->pivot->services_id)}}" class="editor_remove">{{$servicers->pivot->services_id}} Delete</a></td>-->
+                                    <td><a href="{{url('/delete-service/'.$servicers->id)}}" class="btn btn-danger"><i class="fa fa-remove"></i> </a> </td>
 
                                 </tr>
                             @endforeach

@@ -12,7 +12,7 @@ interface ServiceRepositoryInterface{
      * @param array $data
      * @return mixed
      */
-    public function deleteService( $data);
+    public function deleteService($data);
 
     /**get my services
      * @return mixed

@@ -75,4 +75,17 @@ class AppointmentRepository implements AppointmentRepositoryInterface
 
 
     }
+
+    /**Update appointment data
+     * @param $id
+     * @param array $data
+     * @return mixed
+     */
+    public function updateAppointment($id, array $data)
+    {
+        // TODO: Implement updateAppointment() method.
+        return  $this->appointment::where('appointment_id',$id)->first()->update([
+            'status'=>$data['app_status']
+         ]);
+    }
 }

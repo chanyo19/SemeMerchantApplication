@@ -54,6 +54,10 @@ Route::get('/add-service',[
 Route::post('/addservice',[
     'uses'=>'Service\ServiceController@store'
 ])->name('addservice');
+Route::get('/delete-service/{service_i}',[
+    'uses'=>'Service\ServiceController@delete'
+]);
+
 
 
 Route::get('view-my-history-appointments',[
@@ -66,4 +70,8 @@ Route::get('view-my-today-appointments',[
 //view single appointment
 Route::get('/view_appointment/{appointment_id}',[
     'uses'=>'Appointment\AppointmentController@viewAppointment'
+]);
+
+Route::post('/update-appointment',[
+    'uses'=>'Appointment\AppointmentController@updateAppointment'
 ]);

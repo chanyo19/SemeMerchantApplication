@@ -41,7 +41,7 @@ class ServiceRepository implements ServiceRepositoryInterface{
      * @param array $data
      * @return mixed
      */
-    public function deleteService( $data)
+    public function deleteService($data)
     {
 
         return $this->merchant->findOrFail($this->getMerchant())->services()->detach($data);

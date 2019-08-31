@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Appointment;
 use App\Repositories\Appointment\AppointmentRepositoryInterface;
 use App\Traits\MerchantTrait;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class AppointmentController extends Controller
 {
@@ -48,5 +51,22 @@ class AppointmentController extends Controller
     public function viewAppointment($appointment_id){
 
         return view('appointment.appointment')->with('appointment',$this->appointmentRepository->getSingleAppointment($appointment_id));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateAppointment(Request $request){
+
+        if($this->appointmentRepository->updateAppointment($request->appointment_id,$request->all())){
+
+            Session::flash('success','Appointment Updated Successfully');
+           return redirect()->back();
+        }
+        else{
+            Session::flash('error','Something went wrong');
+            return redirect()->back();
+        }
     }
 }

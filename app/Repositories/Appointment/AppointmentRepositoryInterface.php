@@ -32,4 +32,11 @@ interface AppointmentRepositoryInterface
      */
     public function getSingleAppointment($appointment_id);
 
+    /**
+     * @param $id
+     * @param array $data
+     * @return mixed
+     */
+    public function updateAppointment($id, array $data);
+
 }

@@ -322,7 +322,16 @@
         <!-- End Navbar -->
         <div class="content">
             <div class="content">
+                    @if(Session::has('success'))
+                        <span class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('success')}}</span>
+
+                    @endif
+                    @if(Session::has('error'))
+                        <span class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('error')}}</span>
+
+                    @endif
                 <div class="container-fluid">
+
                     @yield('content')
                 </div>
                 <footer class="footer">

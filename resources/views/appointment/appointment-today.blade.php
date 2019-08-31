@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-body">
-                        <h4 class="m-b-30 m-t-0">History appointment of {{\Illuminate\Support\Facades\Auth::user()->merchant_name}}</h4>
+                        <h4 class="m-b-30 m-t-0">Today Appointments of {{auth::user()->name}}</h4>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
@@ -45,7 +45,7 @@
                                                     @endif
                                                 </td>
 
-                                                <td><button class="btn btn-success"><i class="fa fa-print"></i> </button> <button class="btn btn-primary"><i class="fa fa-envelope"></i> </button> <button class="btn btn-danger"><i class="fa fa-remove"></i> </button> </td>
+                                                <td><a class="btn btn-success" href="{{url('/view_appointment/'.$item->appointment_id)}}"><i class="fa fa-eye"></i> </a> <button class="btn btn-success"><i class="fa fa-print"></i> </button> <button class="btn btn-primary"><i class="fa fa-envelope"></i> </button> <button class="btn btn-danger"><i class="fa fa-remove"></i> </button> </td>
 
                                             </tr>
                                         @endforeach

@@ -33,7 +33,7 @@ class ServiceController extends Controller
             'myServicers'=>$this->serviceRepository->getMyServices()
         ];
 
-        return view('services.add-service')->with($Service_data);
+        return view('services.add-service')->with('data',$Service_data);
     }
 
     /**
@@ -43,6 +43,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request){
 
+        //dd($request->all());
          if($this->serviceRepository->addService($request->only(['service','price'])))
          {
              return redirect()->back();
@@ -55,8 +56,8 @@ class ServiceController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function delete($request){
-        if($this->serviceRepository->deleteService($request))
+    public function delete($service_i){
+        if($this->serviceRepository->deleteService($service_i))
         {
             return redirect()->back();
         }
