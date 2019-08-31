@@ -46,7 +46,7 @@ class AppointmentController extends Controller
         $appointments= Appointment::where([
             'customer_id' => $this->getCustomerfromRequest($request->user()),
            // 'customer_id' => $request->user()->id,
-            'status' => 1,
+
         ])->get();
         if($appointments){
             return response()->json(['appointments'=>$appointments],200);
