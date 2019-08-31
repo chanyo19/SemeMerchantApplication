@@ -28,8 +28,11 @@ class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
     {
         // TODO: Implement addCustomerAppointmentRequest() method.
         if($data&&$cus_id){
+
+
             try{
                 return $this->appointment->updateOrCreate([
+                    'appointment_id'=>time().'-'.$data['merchant_id'].'-'.$cus_id,
                     'merchant_id'=>$data['merchant_id'],
                     'customer_id'=>$cus_id,
                     'slot_id'=>$data['time'],

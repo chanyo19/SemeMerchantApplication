@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    protected $fillable=['merchant_id','customer_id','slot_id','date','status','special_note','amount','services'];
+    protected $table='appointments';
+    protected $fillable=['appointment_id','merchant_id','customer_id','slot_id','date','status','special_note','amount','services'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -20,7 +21,7 @@ class Appointment extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function customer(){
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo('App\Models\Customer\Customer','customer_id','id');
     }
 
     /**

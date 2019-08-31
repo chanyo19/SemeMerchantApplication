@@ -30,7 +30,8 @@ class AppointmentController extends Controller
      */
     public function index(){
 
-      return view('appointment.appointment-history')->with('appointments',$this->appointmentRepository->getMyAppointmentHistory());
+        $appointments=$this->appointmentRepository->getMyAppointmentHistory();
+      return view('appointment.appointment-history')->with('appointments',$appointments);
     }
 
     /**
@@ -38,5 +39,14 @@ class AppointmentController extends Controller
      */
     public function todaymyappointments(){
         return view('appointment.appointment-today')->with('appointments',$this->appointmentRepository->getMyTodayAppointments());
+    }
+
+    /**View single appointment
+     * @param $appointment_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function viewAppointment($appointment_id){
+
+        return view('appointment.appointment')->with('appointment',$this->appointmentRepository->getSingleAppointment($appointment_id));
     }
 }

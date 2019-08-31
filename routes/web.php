@@ -62,3 +62,8 @@ Route::get('view-my-history-appointments',[
 Route::get('view-my-today-appointments',[
     'uses'=>'Appointment\AppointmentController@todaymyappointments'
 ]);
+
+//view single appointment
+Route::get('/view_appointment/{appointment_id}',[
+    'uses'=>'Appointment\AppointmentController@viewAppointment'
+]);

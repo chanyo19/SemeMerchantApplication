@@ -9,6 +9,7 @@
 namespace App\Repositories\Appointment;
 
 
+use App\Models\Appointment\Appointment;
 use App\Models\Merchant\Merchant;
 use App\Traits\MerchantTrait;
 
@@ -19,14 +20,20 @@ class AppointmentRepository implements AppointmentRepositoryInterface
      * @var Merchant
      */
     private $merchant;
+    /**
+     * @var Appointment
+     */
+    private $appointment;
 
     /**
      * AppointmentRepository constructor.
      * @param Merchant $merchant
+     * @param Appointment $appointment
      */
-    public function __construct(Merchant $merchant)
+    public function __construct(Merchant $merchant,Appointment $appointment)
     {
         $this->merchant = $merchant;
+        $this->appointment = $appointment;
     }
 
 
@@ -54,5 +61,18 @@ class AppointmentRepository implements AppointmentRepositoryInterface
     public function getMyUpcomingAppointments()
     {
         // TODO: Implement getMyUpcomingAppointments() method.
+    }
+
+    /**Get single appointment using appointment id
+     * @param $appointment_id
+     * @return mixed
+     */
+    public function getSingleAppointment($appointment_id)
+    {
+        // TODO: Implement getSingleAppointment() method.
+
+        return $this->appointment::where('appointment_id',$appointment_id)->first();
+
+
     }
 }

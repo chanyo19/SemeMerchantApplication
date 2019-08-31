@@ -26,4 +26,10 @@ interface AppointmentRepositoryInterface
      */
     public function getMyUpcomingAppointments();
 
+    /**Get single appointment using appointment id
+     * @param $appointment_id
+     * @return mixed
+     */
+    public function getSingleAppointment($appointment_id);
+
 }
