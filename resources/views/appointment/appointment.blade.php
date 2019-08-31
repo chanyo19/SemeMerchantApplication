@@ -59,7 +59,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Action</td>
-                                                <td><a href="#" class="btn btn-warning">UPDATE</a> <a href="#" class="btn btn-success">NOTIFY CUSTOMER</a><a href="/view-my-history-appointments" class="btn btn-primary">BACK</a></td>
+                                                <td><a href="#" class="btn btn-warning">UPDATE</a> <a href="#" class="btn btn-success">NOTIFY CUSTOMER</a><a href="{{url('/view-my-history-appointments')}}" class="btn btn-primary">BACK</a></td>
                                             </tr>
                                             {{--<tr>--}}
                                             {{--<td>{{$item->id}}</td>--}}
