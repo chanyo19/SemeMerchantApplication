@@ -23,4 +23,10 @@ interface ServiceRepositoryInterface{
      * @return mixed
      */
     public function getAllServices();
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getMerchants($id);
 }

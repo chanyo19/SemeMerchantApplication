@@ -65,4 +65,15 @@ class ServiceRepository implements ServiceRepositoryInterface{
         return $this->services->all();
 
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getMerchants($id)
+    {
+        // TODO: Implement getMerchants() method.
+
+        return $this->services->findOrFail($id)->merchants;
+    }
 }

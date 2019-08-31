@@ -64,6 +64,14 @@ class ServiceController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param $id
+     * @return
+     */
+    public function getMerchantsByService($id){
+
+        return $this->serviceRepository->getMerchants($id);
+    }
 
 
 }
