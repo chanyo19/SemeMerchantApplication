@@ -73,5 +73,12 @@ class ServiceController extends Controller
         return response()->json(['merchants'=>$this->serviceRepository->getMerchants($id)],200);
     }
 
+    /**
+     *
+     */
+    public function getAllActiveServices(){
+
+        return response()->json(['services'=>$this->serviceRepository->getAllServices()],200);
+    }
 
 }

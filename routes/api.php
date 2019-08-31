@@ -49,6 +49,10 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
         ]);
         Route::get('/logout','Api\CustomerRegistrationController@logoutCustomer');
     });
+    Route::group(['prefix'=>'services'],function (){
+
+        Route::get('/getservices','Service\ServiceController@getAllActiveServices');
+    });
 
 });
 
