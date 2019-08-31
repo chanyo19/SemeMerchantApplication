@@ -70,7 +70,7 @@ class ServiceController extends Controller
      */
     public function getMerchantsByService($id){
 
-        return $this->serviceRepository->getMerchants($id);
+        return response()->json(['merchants'=>$this->serviceRepository->getMerchants($id)],200);
     }
 
 
