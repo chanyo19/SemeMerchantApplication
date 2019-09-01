@@ -1,5 +1,6 @@
 <?php
 namespace App\Repositories\Api\Appointment;
+use App\Jobs\sendMail;
 use App\Models\Appointment\Appointment;
 use App\Traits\CustomerTrait;
 
@@ -31,6 +32,7 @@ class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
 
 
             try{
+                dispatch(new sendMail("New appointment added from ".$cus_id .'Customer to - '.$data['merchant_id'].'merchant'));
                 return $this->appointment->updateOrCreate([
                     'appointment_id'=>time().'-'.$data['merchant_id'].'-'.$cus_id,
                     'merchant_id'=>$data['merchant_id'],

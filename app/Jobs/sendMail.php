@@ -11,18 +11,26 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Mockery\Exception;
 
-class TestJob implements ShouldQueue
+class sendMail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    private $body;
+    /**
+     * @var string
+     */
+    private $to;
 
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param $body
+     * @param string $to
      */
-    public function __construct()
+    public function __construct($body,$to="ebayshashila@mail.com")
     {
         //
+        $this->body = $body;
+        $this->to = $to;
     }
 
     /**
@@ -32,11 +40,11 @@ class TestJob implements ShouldQueue
      */
     public function handle()
     {
-      $email="ebayshashila@mail.com";
+     $email=$this->to;
       $subject="test";
         Log::info("Sending mail");
         try{
-            Mail::send('mail.mail', [], function($message) use ($email, $subject) {
+            Mail::send('mail.mail', ['data'=>$this->body], function($message) use ($email, $subject) {
                 $message->to($email)->subject($subject);
             });
             Log::info("Basic Email Sent. Check your inbox.");
