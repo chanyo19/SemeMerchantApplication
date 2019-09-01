@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Mockery\Exception;
 
 class TestJob implements ShouldQueue
 {
@@ -36,12 +37,16 @@ class TestJob implements ShouldQueue
     }
     public function basic_email() {
         $data = array('name'=>"Shashila heshan");
+       try{
+           Mail::send('mail.mail', $data, function($message) {
+               $message->to(' a08fc27b67-9093ae@inbox.mailtrap.io', 'Tutorials Point')->subject
+               ('Laravel Basic Testing Mail');
+               $message->from('xyz@gmail.com','shashila heshan');
+           });
+           Log::info("Basic Email Sent. Check your inbox.");
+       }catch (\Exception $exception){
+           Log::error('failed '.$exception);
+       }
 
-        Mail::send('mail.mail', $data, function($message) {
-            $message->to('abc@gmail.com', 'Tutorials Point')->subject
-            ('Laravel Basic Testing Mail');
-            $message->from('xyz@gmail.com','shashila heshan');
-        });
-        Log::info("Basic Email Sent. Check your inbox.");
     }
 }
