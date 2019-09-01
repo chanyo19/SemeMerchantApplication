@@ -32,18 +32,17 @@ class TestJob implements ShouldQueue
      */
     public function handle()
     {
-        $data = array('name'=>"Shashila heshan");
+      $email="ebayshashila@mail.com";
+      $subject="test";
         Log::info("Sending mail");
-//        try{
-//            Mail::send('mail.mail', $data, function($message) {
-//                $message->to(' a08fc27b67-9093ae@inbox.mailtrap.io', 'Tutorials Point')->subject
-//                ('Laravel Basic Testing Mail');
-//                $message->from('xyz@gmail.com','shashila heshan');
-//            });
-//            Log::info("Basic Email Sent. Check your inbox.");
-//        }catch (\Exception $exception){
-//            Log::error('failed '.$exception);
-//        }
+        try{
+            Mail::send('mail.mail', [], function($message) use ($email, $subject) {
+                $message->to($email)->subject($subject);
+            });
+            Log::info("Basic Email Sent. Check your inbox.");
+        }catch (\Exception $exception){
+            Log::error('failed '.$exception);
+        }
 
     }
 
