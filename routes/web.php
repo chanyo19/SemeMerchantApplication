@@ -11,7 +11,9 @@
 |
 */
 
- Route::get('/', function () {
+use App\Jobs\TestJob;
+
+Route::get('/', function () {
    return redirect('/login');
  });
 
@@ -75,3 +77,9 @@ Route::get('/view_appointment/{appointment_id}',[
 Route::post('/update-appointment',[
     'uses'=>'Appointment\AppointmentController@updateAppointment'
 ]);
+
+//test queue
+Route::get('/testqueue',function (){
+    dispatch(new TestJob());
+}
+);

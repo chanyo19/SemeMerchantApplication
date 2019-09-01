@@ -13,6 +13,8 @@ sites:
     -
         map: spa-merchant.local
         to: /home/vagrant/code/public
+    -   map: queue-service.local
+        to: /home/vagrant/code/beanstalk_console/public
 databases:
     - homestead
 features:
