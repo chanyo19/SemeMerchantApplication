@@ -1,0 +1,1 @@
+<h1>Test mail <?php date("Y-m-d");?></h1>

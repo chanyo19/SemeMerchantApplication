@@ -37,7 +37,7 @@ class TestJob implements ShouldQueue
     public function basic_email() {
         $data = array('name'=>"Shashila heshan");
 
-        Mail::send(['text'=>'mail'], $data, function($message) {
+        Mail::send('mail.mail', $data, function($message) {
             $message->to('abc@gmail.com', 'Tutorials Point')->subject
             ('Laravel Basic Testing Mail');
             $message->from('xyz@gmail.com','shashila heshan');
