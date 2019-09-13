@@ -35,6 +35,7 @@
 
     <!--Animate css-->
     <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/css/invoice.css')}}" rel="stylesheet" type="text/css">
     <!--Morris Chart CSS -->
 
     <!-- Hub Scc-->

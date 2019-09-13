@@ -81,3 +81,6 @@ Route::post('/update-appointment',[
 Route::get('/notify-customer/{email}/{appointment}',[
     'uses'=>'Appointment\AppointmentController@notifyCustomer'
 ]);
+Route::get('/generate-invoice/{app_id}',[
+    'uses'=>'Invoice\InvoiceController@index'
+]);

@@ -52,7 +52,7 @@
                                                     @endif
                                                 </td>
 
-                                                <td><a class="btn btn-success" href="{{url('/view_appointment/'.$item->appointment_id)}}"><i class="fa fa-eye"></i> </a> <button class="btn btn-success"><i class="fa fa-print"></i> </button> <button class="btn btn-primary"><i class="fa fa-envelope"></i> </button> <button class="btn btn-danger"><i class="fa fa-remove"></i> </button> </td>
+                                                <td><a class="btn btn-success" href="{{url('/view_appointment/'.$item->appointment_id)}}"><i class="fa fa-eye"></i> </a> <a href="{{url('/generate-invoice/'.$item->appointment_id)}}" class="btn btn-success"><i class="fa fa-print"></i> </a> <button class="btn btn-primary"><i class="fa fa-envelope"></i> </button> <button class="btn btn-danger"><i class="fa fa-remove"></i> </button> </td>
 
                                             </tr>
                                         @endforeach
