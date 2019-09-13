@@ -248,3 +248,5 @@
 [2019-09-13 08:54:20][42] Processed:  App\Jobs\sendMail
 [2019-09-13 08:55:00][43] Processing: App\Jobs\sendMail
 [2019-09-13 08:55:03][43] Processed:  App\Jobs\sendMail
+[2019-09-13 11:01:30][44] Processing: App\Jobs\sendMail
+[2019-09-13 11:01:38][44] Processed:  App\Jobs\sendMail

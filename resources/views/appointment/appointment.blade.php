@@ -35,10 +35,18 @@
                                                     <td>Contact Number</td><td>{{$appointment->customer->mobile_number}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Services</td><td>{{$appointment->services}}</td>
+                                                    @php
+                                                        $service=explode(',',$appointment->services);
+                                                    @endphp
+                                                    <td>Services</td><td>
+                                                           @foreach($service as $ser)
+                                                            <li>{{$ser}}</li>
+                                                            @endforeach
+                                                        <button class="btn btn-success" style="float: right" type="button">Add Service</button>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Total</td><td>{{$appointment->amount}}</td>
+                                                    <td>Total</td><td>Rs.{{$appointment->amount}}</td>
                                                 </tr>
                                                 <input type="hidden" value="{{$appointment->appointment_id}}" name="appointment_id"/>
                                                 <input type="hidden" value="{{$appointment->customer->email}}" name="cus_email"/>

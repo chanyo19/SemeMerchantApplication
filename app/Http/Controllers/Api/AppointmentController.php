@@ -48,7 +48,9 @@ class AppointmentController extends Controller
             'customer_id' => $this->getCustomerfromRequest($request->user()),
            // 'customer_id' => $request->user()->id,
 
-        ])->get();
+        ])->with('merchant','customer','timeslot')->get();
+
+
         if($appointments){
             return response()->json(['appointments'=>$appointments],200);
         }else{
