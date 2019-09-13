@@ -39,9 +39,16 @@
                                                 <td>{{$item->amount}}</td>
                                                 <td>{{$item->created_at}}</td>
                                                 <td>@if($item->status==1)
-                                                        Active
+                                                        <span class="badge badge-primary" >Pending
+                                                        </span>
+
+                                                    @elseif($item->status==2)
+                                                        <span class="badge badge-success" >Confirmed
+                                                        </span>
                                                     @else
-                                                        Inactive
+                                                        <span class="badge badge-danger" >Cancelled
+                                                        </span>
+
                                                     @endif
                                                 </td>
 
