@@ -76,4 +76,6 @@ class ServiceRepository implements ServiceRepositoryInterface{
 
         return $this->services->findOrFail($id)->merchants;
     }
+
+
 }

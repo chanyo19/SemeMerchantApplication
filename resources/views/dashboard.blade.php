@@ -10,6 +10,8 @@
             </div>
         </div>
     </div>
+    {{  App\Models\Merchant\Merchant::where('email',auth::user()->email)->first()->id}}
+    {{date('Y-m-d')}}
     <div class="col-4 card">
         <div class="row mt-2">
             <div class="col-md-6 ">

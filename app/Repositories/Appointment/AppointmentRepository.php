@@ -9,6 +9,7 @@
 namespace App\Repositories\Appointment;
 
 
+use App\Jobs\sendMail;
 use App\Models\Appointment\Appointment;
 use App\Models\Merchant\Merchant;
 use App\Traits\MerchantTrait;
@@ -52,6 +53,7 @@ class AppointmentRepository implements AppointmentRepositoryInterface
     public function getMyTodayAppointments()
     {
         // TODO: Implement getMyTodayAppointments() method.
+
         return $this->merchant->findOrFail($this->getMerchant())->appointments;
     }
 
@@ -84,8 +86,28 @@ class AppointmentRepository implements AppointmentRepositoryInterface
     public function updateAppointment($id, array $data)
     {
         // TODO: Implement updateAppointment() method.
+        $status=null;
+        switch ($data['app_status']){
+            case 1:
+                $status="Pending";
+                break;
+            case 2:
+                $status="Approved";
+                break;
+            case 3:
+                $status="Cancelled";
+                break;
+            default:
+                $status=null;
+
+        }
+        dispatch(new sendMail("Appointment was ".$status.'-'.$data['cus_email']),$data['cus_email']);
         return  $this->appointment::where('appointment_id',$id)->first()->update([
             'status'=>$data['app_status']
          ]);
+    }
+    public function notifyCustomer($email,$appointment){
+        dispatch(new sendMail('Reminder - Appointment ID- '.$appointment,$email));
+        return true;
     }
 }

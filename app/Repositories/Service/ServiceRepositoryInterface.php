@@ -24,9 +24,4 @@ interface ServiceRepositoryInterface{
      */
     public function getAllServices();
 
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function  qgetMerchants($id);
 }

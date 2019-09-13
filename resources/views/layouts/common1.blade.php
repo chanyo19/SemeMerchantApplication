@@ -320,8 +320,9 @@
         <!-- Top Bar End -->
 
         <!-- End Navbar -->
-        <div class="content">
+
             <div class="content">
+                <div class="col-md-12 m-t-5">
                     @if(Session::has('success'))
                         <span class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('success')}}</span>
 
@@ -330,6 +331,7 @@
                         <span class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('error')}}</span>
 
                     @endif
+                </div>
                 <div class="container-fluid">
 
                     @yield('content')
@@ -349,7 +351,7 @@
                     </div>
                 </footer>
             </div>
-        </div>
+
 
 
         <!--   Core JS Files   -->

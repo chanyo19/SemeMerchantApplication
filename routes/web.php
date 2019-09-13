@@ -77,3 +77,7 @@ Route::get('/view_appointment/{appointment_id}',[
 Route::post('/update-appointment',[
     'uses'=>'Appointment\AppointmentController@updateAppointment'
 ]);
+
+Route::get('/notify-customer/{email}/{appointment}',[
+    'uses'=>'Appointment\AppointmentController@notifyCustomer'
+]);

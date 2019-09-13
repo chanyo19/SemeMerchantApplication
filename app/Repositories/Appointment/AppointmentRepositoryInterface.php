@@ -39,4 +39,11 @@ interface AppointmentRepositoryInterface
      */
     public function updateAppointment($id, array $data);
 
+    /**
+     * @param $email
+     * @param $appointment
+     * @return mixed
+     */
+    public function notifyCustomer($email, $appointment);
+
 }

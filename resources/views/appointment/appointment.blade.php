@@ -41,6 +41,7 @@
                                                     <td>Total</td><td>{{$appointment->amount}}</td>
                                                 </tr>
                                                 <input type="hidden" value="{{$appointment->appointment_id}}" name="appointment_id"/>
+                                                <input type="hidden" value="{{$appointment->customer->email}}" name="cus_email"/>
                                                 <tr>
                                                     <td>Status</td><td>
                                                         <select class="form-control" name="app_status">
@@ -62,7 +63,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Action</td>
-                                                    <td><button type="submit" class="btn btn-warning">UPDATE</button> <a href="#" class="btn btn-success">NOTIFY CUSTOMER</a><a href="{{url('/view-my-history-appointments')}}" class="btn btn-primary">BACK</a></td>
+                                                    <td><button type="submit" class="btn btn-warning">UPDATE</button> <a href="{{url('/notify-customer/'.$appointment->customer->email.'/'.$appointment->appointment_id)}}" class="btn btn-success">NOTIFY CUSTOMER</a><a href="{{url('/view-my-history-appointments')}}" class="btn btn-primary">BACK</a></td>
                                                 </tr>
                                                 {{--<tr>--}}
                                                 {{--<td>{{$item->id}}</td>--}}

@@ -31,6 +31,7 @@ class AppointmentController extends Controller
      */
     public function addAppointmentFromCustomer(Request $request){
         try{
+
             return response()->json(['response'=>$this->appointmentRepository->addCustomerAppointmentRequest($request->all(),$this->getCustomerfromRequest($request->user()))],200);
         }catch (\Exception $exception){
             return response()->json(['response'=>0],404);

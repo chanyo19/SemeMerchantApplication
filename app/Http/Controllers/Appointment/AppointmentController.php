@@ -41,6 +41,7 @@ class AppointmentController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function todaymyappointments(){
+        //dd($this->appointmentRepository->getMyTodayAppointments());
         return view('appointment.appointment-today')->with('appointments',$this->appointmentRepository->getMyTodayAppointments());
     }
 
@@ -68,5 +69,14 @@ class AppointmentController extends Controller
             Session::flash('error','Something went wrong');
             return redirect()->back();
         }
+    }
+    public function notifyCustomer($email,$appointment){
+         if($this->appointmentRepository->notifyCustomer($email,$appointment)){
+             Session::flash('success','Appointment Reminded Successfully');
+             return redirect()->back();
+         }else{
+             Session::flash('error','Something went wrong');
+             return redirect()->back();
+         }
     }
 }
