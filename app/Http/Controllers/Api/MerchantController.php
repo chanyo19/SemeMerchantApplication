@@ -49,10 +49,10 @@ class MerchantController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getMerchantData($id){
+    public function getMerchantData($id,$date){
         try{
             return response()->json(['merchant'=>$this->merchantRepository->getMerchantData($id),
-                'available_time'=>$this->merchantRepository->getAvailableTimeSlots(Carbon::now()->format('Y-m-d'),$id)
+                'available_time'=>$this->merchantRepository->getAvailableTimeSlots($date,$id)
               ],200);
         }catch (Exception $exception){
                return response()->json(['error'=>$exception],404);

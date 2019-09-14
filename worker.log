@@ -2542,3 +2542,5 @@ In RouteAction.php line 89:
   Invalid route action: [App\Http\Controllers\].  
                                                   
 
+[2019-09-13 20:09:43][45] Processing: App\Jobs\sendMail
+[2019-09-13 20:09:51][45] Processed:  App\Jobs\sendMail

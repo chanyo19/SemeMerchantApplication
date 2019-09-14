@@ -25,7 +25,7 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
         Route::get('/merchants',[
             'uses'=>'Api\MerchantController@getMerchants'
         ]);
-        Route::get('/merchant/{id}',[
+        Route::get('/merchant/{id}/{date}',[
             'uses'=>'Api\MerchantController@getMerchantData'
         ]);
         Route::get('/services/{mid}',[
