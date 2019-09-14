@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Invoice;
 
+use App\Jobs\sendMail;
 use App\Models\Appointment\Appointment;
 use App\Models\Merchant\Merchant;
 use Illuminate\Http\Request;
@@ -14,16 +15,15 @@ class InvoiceController extends Controller
 
             $appointment=Appointment::where('appointment_id',$app_id)->with('merchant','customer','timeslot')->get()->toArray();
             $services=explode(',',$appointment[0]["services"]);
-            $servicesOfMerchant=Merchant::findOrFail($appointment[0]["merchant_id"]);
-            $merServices=array();
-             foreach ($services as $service){
-                // array_push($merServices,[$servicesOfMerchant->services->where('service',$service)->toArray(),'price'=>100]);
-             }
-           // dd($merServices);
-            return view('invoice.create-invoice')->with('appointment',$appointment)->with('services',collect($merServices));
+            return view('invoice.create-invoice')->with('appointment',$appointment)->with('services',$services);
         }catch (\Exception $exception){
-            dd($exception);
+            return redirect()->back();
         }
 
+    }
+    public function send(Request $request){
+        if($request){
+            dispatch(new sendMail($request->body,$request->mail));
+        }
     }
 }

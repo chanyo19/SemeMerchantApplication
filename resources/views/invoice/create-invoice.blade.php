@@ -1,8 +1,8 @@
-<?php
-//dd($services)
-?>
-@extends('layouts.common1')
 
+@extends('layouts.common1')
+<?php
+//dd($appointment);
+?>
 @section('links')
 
 
@@ -23,12 +23,13 @@
 
                                         <div class="toolbar hidden-print">
                                             <div class="text-right">
-                                                <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-                                                <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+                                                <button id="printInvoice" onclick="printout()" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+                                                <button class="btn btn-info" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+                                                <button class="btn btn-info" onclick="send()"><i class="fa fa-mail-reply"></i> EMAIL</button>
                                             </div>
                                             <hr>
                                         </div>
-                                        <div class="invoice overflow-auto">
+                                        <div class="invoice overflow-auto" id="invoice2">
                                             <div style="min-width: 600px">
                                                 <header>
                                                     <div class="row">
@@ -55,7 +56,7 @@
                                                             <div class="text-gray-light">INVOICE TO:</div>
                                                             <h2 class="to"> {{$appointment[0]["customer"]["full_name"]}}</h2>
                                                             <div class="address">{{$appointment[0]["customer"]["address"]}}</div>
-                                                            <div class="email"><a href="mailto:{{$appointment[0]["customer"]["email"]}}">{{$appointment[0]["customer"]["email"]}}</a></div>
+                                                            <div class="email">{{$appointment[0]["customer"]["email"]}}</div>
                                                         </div>
                                                         <div class="col invoice-details">
                                                             <h1 class="invoice-id">INVOICE 3-2-1</h1>
@@ -63,60 +64,50 @@
 
                                                         </div>
                                                     </div>
-                                                    <table border="0" cellspacing="0" cellpadding="0">
+                                                    <table border="0"  class="table table-full-width" >
                                                         <thead>
                                                         <tr>
                                                             <th>#</th>
 
                                                             <th class="text-right">SERVICE</th>
 
-                                                            <th class="text-right">TOTAL</th>
+
                                                         </tr>
                                                         </thead>
-                                                        <tbody>
-                                                        @php
-                                                        $services=explode(',',$appointment[0]["services"]);
-                                                        @endphp
+                                                       @foreach($services as $index=> $service)
 
                                                         <tr>
-                                                            <td class="no">04</td>
-                                                            <td class="text-left"><h3>
-                                                                    <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                                        Youtube channel
-                                                                    </a>
+                                                            <td class="no">{{$index+1}}</td>
+                                                            <td class="text-right"><h3>
+
+                                                                        {{$service}}
+
                                                                 </h3>
-                                                                <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                                                    Useful videos
-                                                                </a>
-                                                                to improve your Javascript skills. Subscribe and stay tuned :)
+
                                                             </td>
-                                                            <td class="unit">$0.00</td>
-                                                            <td class="qty">100</td>
-                                                            <td class="total">$0.00</td>
+
                                                         </tr>
+
+                                                        @endforeach
                                                         </tbody>
                                                         <tfoot>
                                                         <tr>
                                                             <td colspan="2"></td>
                                                             <td colspan="2">SUBTOTAL</td>
-                                                            <td>$5,200.00</td>
+                                                            <td>Rs.{{$appointment[0]["amount"]}}</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td colspan="2"></td>
-                                                            <td colspan="2">TAX 25%</td>
-                                                            <td>$1,300.00</td>
-                                                        </tr>
+
                                                         <tr>
                                                             <td colspan="2"></td>
                                                             <td colspan="2">GRAND TOTAL</td>
-                                                            <td>$6,500.00</td>
+                                                            <td>Rs.{{$appointment[0]["amount"]}}</td>
                                                         </tr>
                                                         </tfoot>
                                                     </table>
                                                     <div class="thanks">Thank you!</div>
                                                     <div class="notices">
                                                         <div>NOTICE:</div>
-                                                        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                                                        <div class="notice">NOTICE about invoice</div>
                                                     </div>
                                                 </main>
                                                 <footer>
@@ -139,4 +130,58 @@
 
 
 
+@stop
+@section('scripts')
+<script>
+    function printout() {
+
+        var divContents = $("#invoice2").html();
+        var printWindow = window.open('', '', 'height=400,width=800');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+
+        printWindow.document.write('<link rel="stylesheet"  href="{{asset('css/material-dashboard.css?v=2.1.0')}}">');
+        printWindow.document.write('<link rel="stylesheet" href="{{asset('assets/css/invoice.css')}}">');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+    function pdf(){
+        let doc = new jsPDF('p','pt','a4');
+        doc.addHTML(document.getElementById('invoice2'),function() {
+            doc.save('html.pdf');
+        });
+        var divContents = $("#invoice2").html();
+        var printWindow = window.open('', '', 'height=400,width=800');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+
+        printWindow.document.write('<link rel="stylesheet"  href="{{asset('css/material-dashboard.css?v=2.1.0')}}">');
+        printWindow.document.write('<link rel="stylesheet" href="{{asset('assets/css/invoice.css')}}">');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+
+       // console.log(printWindow.document.body);
+    }
+    function send(){
+        $.ajax({
+            method:"post",
+
+            data:{
+                _token: "{{ csrf_token() }}",
+              body: $("#invoice2").html(),
+              mail:$('.email').html()
+            },
+            url:"/send-invoice",
+            success:function (res) {
+
+                console.log(res);
+            },
+
+
+        });
+    }
+</script>
 @stop
