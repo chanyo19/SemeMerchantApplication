@@ -11,6 +11,7 @@
 |
 */
 
+use App\Events\AppointmentAdded;
 use App\Jobs\sendMail;
 
 Route::get('/', function () {
@@ -87,3 +88,7 @@ Route::get('/generate-invoice/{app_id}',[
 Route::post('/send-invoice',[
     'uses'=>'Invoice\InvoiceController@send'
 ]);
+Route::get('/socket',function(){
+   //event(new AppointmentAdded("hii"));
+    event(new \App\Events\SendMessage(\App\Models\User::find(1)));
+});

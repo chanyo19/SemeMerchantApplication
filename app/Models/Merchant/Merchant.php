@@ -2,6 +2,7 @@
 
 namespace App\Models\Merchant;
 
+use App\App\Models\Message\Message;
 use App\Models\Customer\Customer;
 use App\Models\Services\Services;
 use Carbon\Carbon;
@@ -37,5 +38,8 @@ class Merchant extends Model
      */
     public function services(){
         return $this->belongsToMany(Services::class)->withPivot('price')->withTimestamps();
+    }
+    public function messages(){
+        return $this->hasMany(Message::class,'merchant_id','id');
     }
 }

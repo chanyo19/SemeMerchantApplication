@@ -176,6 +176,7 @@
             </div>
             <!--  End Modal -->
         </div>
+        <socket-file></socket-file>
         <!--       card view container of today upcoming appoinments ------>
         <div class="row scrollbar">
             <!--     singal  card view ------>

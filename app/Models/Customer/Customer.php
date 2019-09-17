@@ -2,6 +2,7 @@
 
 namespace App\Models\Customer;
 
+use App\App\Models\Message\Message;
 use App\Models\Merchant\Merchant;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +18,9 @@ class Customer extends Model
         return $this->belongsToMany(Merchant::class)->withTimestamps();
     }
 
+    public function messages(){
+        return $this->hasMany(Message::class,'customer_id','id');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

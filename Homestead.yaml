@@ -15,6 +15,9 @@ sites:
         to: /home/vagrant/code/public
     -   map: queue-service.local
         to: /home/vagrant/code/beanstalk_console/public
+ports:
+    - send: 6001
+      to: 6001
 databases:
     - homestead
 features:

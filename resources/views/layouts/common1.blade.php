@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-touch-icon')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
@@ -333,7 +334,7 @@
 
                     @endif
                 </div>
-                <div class="container-fluid">
+                <div class="container-fluid" id="app">
 
                     @yield('content')
                 </div>
@@ -356,6 +357,7 @@
 
 
         <!--   Core JS Files   -->
+        <script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
         <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
         <script src="{{asset('assets/js/core/bootstrap-material-design.min.js')}}"></script>
@@ -405,6 +407,7 @@
         <script type="text/javascript" src="{{asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
 
         <script>
             $(document).ready(function () {

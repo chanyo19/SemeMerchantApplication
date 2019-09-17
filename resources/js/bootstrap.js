@@ -50,7 +50,9 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: 'd7da623f66590a84e773',
-    cluster: 'ap2',
-    encrypted: true
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: false,
+    wsHost:window.location.hostname,
+    wsPort:6001
 });

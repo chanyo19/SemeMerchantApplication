@@ -12,6 +12,8 @@ use App\Repositories\Appointment\AppointmentRepository;
 use App\Repositories\Appointment\AppointmentRepositoryInterface;
 use App\Repositories\Customer\CustomerRepository;
 use App\Repositories\Customer\CustomerRepositoryInterface;
+use App\Repositories\Message\MessageRepository;
+use App\Repositories\Message\MessageRepositoryInterface;
 use App\Repositories\Service\ServiceRepository;
 use App\Repositories\Service\ServiceRepositoryInterface;
 use App\Repositories\Settings\Menu\MenuRepository;
@@ -45,5 +47,6 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(ServiceRepositoryInterface::class,ServiceRepository::class);
         app()->bind(ApiAppointmentRepositoryInterface::class,ApiAppointmentRepository::class);
         app()->bind(AppointmentRepositoryInterface::class,AppointmentRepository::class);
+        app()->bind(MessageRepositoryInterface::class,MessageRepository::class);
     }
 }

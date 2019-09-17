@@ -37,6 +37,9 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
         Route::get('/get-merchant-by-service/{id}',[
             'uses'=>'Service\ServiceController@getMerchantsByService'
         ]);
+        Route::post('/send-message',[
+            'uses'=>'Message\MessageController@store'
+        ]);
     });
 
     Route::group(['prefix'=>'customer'],function (){
