@@ -13,6 +13,8 @@
 
 use App\Events\AppointmentAdded;
 use App\Jobs\sendMail;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
    return redirect('/login');
