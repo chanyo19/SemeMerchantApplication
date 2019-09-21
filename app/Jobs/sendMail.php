@@ -26,7 +26,7 @@ class sendMail implements ShouldQueue
      * @param $body
      * @param string $to
      */
-    public function __construct($body,$to="ebayshashila@mail.com")
+    public function __construct($body,$to="ebayshashila@gmail.com")
     {
         //
         $this->body = $body;

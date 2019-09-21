@@ -30,5 +30,20 @@ interface MessageRepositoryInterface
      */
     public function deleteMessage($id);
 
+    /**
+     * return my messages according to user type
+     * @param $type
+     * @param $id
+     * @return mixed
+     */
+    public function  getMyConversations($type, $id);
+
+    /**
+     * Get all messages belongs to conversation
+     * @param $c_id
+     * @return mixed
+     */
+    public function getMyMessages($c_id);
+
 
 }

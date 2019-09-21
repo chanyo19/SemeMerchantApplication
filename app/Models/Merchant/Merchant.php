@@ -39,7 +39,18 @@ class Merchant extends Model
     public function services(){
         return $this->belongsToMany(Services::class)->withPivot('price')->withTimestamps();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function messages(){
         return $this->hasMany(Message::class,'merchant_id','id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function conversation(){
+        return $this->hasMany('App\Models\Conversation\Conversation','merchant_id','id');
     }
 }

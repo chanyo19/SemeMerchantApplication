@@ -27,4 +27,7 @@ class Customer extends Model
     public function appointments(){
         return $this->hasMany('App\Models\Appointment\Appointment','customer_id','id');
     }
+    public function conversation(){
+        return $this->hasMany('App\Models\Conversation\Conversation','customer_id','id');
+    }
 }

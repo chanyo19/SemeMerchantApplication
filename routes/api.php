@@ -20,6 +20,14 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::post('/send-message',[
+        'uses'=>'Message\MessageController@store'
+    ]);
+    //get messages from conversation id
+    Route::get('/messages-f-c/{c_id}',[
+        'uses'=>'Message\MessageController@getAllMessagesBelogsToConversation'
+    ]);
+
     Route::group(['prefix'=>'merchant'],function(){
 
         Route::get('/merchants',[
@@ -37,9 +45,10 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
         Route::get('/get-merchant-by-service/{id}',[
             'uses'=>'Service\ServiceController@getMerchantsByService'
         ]);
-        Route::post('/send-message',[
-            'uses'=>'Message\MessageController@store'
+        Route::get('/get-my-c-conversations/{m_id}',[
+            'uses'=>'Message\MessageController@getMerchantConversations'
         ]);
+
     });
 
     Route::group(['prefix'=>'customer'],function (){
@@ -51,6 +60,11 @@ Route::group(['prefix' => 'v1',  'middleware' => 'auth:api'], function()
             'uses'=>'Api\AppointmentController@getMyAppointments'
         ]);
         Route::get('/logout','Api\CustomerRegistrationController@logoutCustomer');
+
+        Route::get('/get-my-m-conversations/{c_id}',[
+            'uses'=>'Message\MessageController@getClientConversations'
+        ]);
+
     });
     Route::group(['prefix'=>'services'],function (){
 
