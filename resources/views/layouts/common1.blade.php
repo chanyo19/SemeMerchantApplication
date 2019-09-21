@@ -357,7 +357,7 @@
 
 
         <!--   Core JS Files   -->
-        <script src="{{asset('js/app.js')}}"></script>
+
         <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
         <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
         <script src="{{asset('assets/js/core/bootstrap-material-design.min.js')}}"></script>
@@ -407,6 +407,7 @@
         <script type="text/javascript" src="{{asset('assets/plugins/parsleyjs/parsley.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+        <script src="{{asset('js/app.js')}}"></script>
 
 
         <script>
