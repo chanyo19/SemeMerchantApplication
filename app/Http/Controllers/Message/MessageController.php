@@ -42,7 +42,7 @@ class MessageController extends Controller
      * @return mixed
      */
     public function  getClientConversations($c_id){
-        return response()->json($this->repository->getMyConversations("c",$c_id));
+        return response()->json(["conversations"=>$this->repository->getMyConversations("c",$c_id)],200);
     }
 
     /**
@@ -51,7 +51,7 @@ class MessageController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function getMerchantConversations($m_id){
-        return response()->json($this->repository->getMyConversations("m",$m_id),200);
+        return response()->json(["conversations"=>$this->repository->getMyConversations("m",$m_id)],200);
     }
     public function getAllMessagesBelogsToConversation($c_id)
     {
