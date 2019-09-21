@@ -56,6 +56,7 @@ class MessageRepository implements MessageRepositoryInterface{
             $message=[];
             $message["title"]=$array["title"];
             $message["message"]=$array["message"];
+            $message['type']=$array["type"];
 
             if($this->checkConversation($c_identifier)){
                 $message["conversation_id"]=$this->checkConversation($c_identifier)->id;
