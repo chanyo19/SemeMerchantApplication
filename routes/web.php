@@ -92,5 +92,6 @@ Route::post('/send-invoice',[
 ]);
 Route::get('/socket',function(){
    //event(new AppointmentAdded("hii"));
-    event(new \App\Events\SendMessage(\App\Models\User::find(1)));
+    dispatch(new sendMail("New appointment added from zoho"));
+    //event(new \App\Events\SendMessage(\App\Models\User::find(1)));
 });
