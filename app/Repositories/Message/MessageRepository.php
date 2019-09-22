@@ -123,11 +123,12 @@ class MessageRepository implements MessageRepositoryInterface{
      * return my messages according to user type
      * @param $type
      * @param $id
+     * @param $mobile
      * @return mixed
      */
-    public function getMyConversations($type, $id)
+    public function getMyConversations($type, $id,$mobile)
     {
-       return $this->getConversations($type,$id);
+       return $this->getConversations($type,$id,$mobile);
         // TODO: Implement getMyMessages() method.
     }
 
