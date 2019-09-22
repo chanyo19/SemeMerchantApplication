@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTypeToMessageTable extends Migration
+class AddMobileNumberToUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTypeToMessageTable extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->string('type')->after('message')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('mobile_number',11)->after('email')->unique()->index();
         });
     }
 
@@ -25,8 +25,8 @@ class AddTypeToMessageTable extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function($table) {
-            $table->dropColumn('type');
+        Schema::table('users', function($table) {
+            $table->dropColumn('mobile_number');
 
         });
     }

@@ -18,6 +18,7 @@ class ApiCustomerRepository implements ApiCustomerRepositoryInterface {
             'name' => $data['full_name'],
             'email' =>$data['email'],
             'password' => Hash::make($data['password']),
+            'mobile_number'=>$data["mobile_number"],
             'user_type'=>2,
             'last_login'=>date('Y-m-d'),
             'is_active'=>1

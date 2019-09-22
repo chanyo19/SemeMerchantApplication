@@ -74,6 +74,22 @@
                                                         <div class="input-group form-control-lg">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">
+                                                                  <i class="material-icons">phone</i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="mobile_number" class="bmd-label-floating">Mobile
+                                                                    (required)</label>
+                                                                <input type="number"
+                                                                       class="form-control {{ $errors->has('mobile_number') ? ' is-invalid' : '' }} "
+                                                                       id="mobile_number" name="mobile_number"
+                                                                       value="{{ old('mobile_number') }}" required>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group form-control-lg">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
                                                                   <i class="material-icons">email</i>
                                                                 </span>
                                                             </div>

@@ -11,21 +11,11 @@
 |
 */
 
-use App\Events\AppointmentAdded;
-use App\Jobs\sendMail;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
    return redirect('/login');
  });
-
-
-
 //Auth::routes();
-
-
-
 
 Auth::routes();
 //Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
@@ -90,8 +80,3 @@ Route::get('/generate-invoice/{app_id}',[
 Route::post('/send-invoice',[
     'uses'=>'Invoice\InvoiceController@send'
 ]);
-Route::get('/socket',function(){
-   //event(new AppointmentAdded("hii"));
-    dispatch(new sendMail("New appointment added from zoho"));
-    //event(new \App\Events\SendMessage(\App\Models\User::find(1)));
-});

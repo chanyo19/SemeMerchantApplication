@@ -51,6 +51,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'spaname' => ['required', 'string', 'max:255'],
+            'mobile_number'=>['required','string','max:11','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255','unique:users'],
             'password' => ['required', 'string', 'max:255']
         ]);
@@ -64,17 +65,14 @@ class RegisterController extends Controller
     protected function create(array $data)
 
     {
-        $time=Carbon::now()->format('YmdHs');
-        $api_prefix=str_random(50);
-        $api_key=$time.$api_prefix;
         $merchant=$this->addMerchant($data);
         return User::create([
             'name' => $data['spaname'],
             'email' =>$data['email'],
             'password' => Hash::make($data['password']),
             'user_type'=>1,
-            'api_token'=>$api_key,
             'last_login'=>date('Y-m-d'),
+            'mobile_number'=>$data["mobile_number"],
             'is_active'=>1
         ]);
     }
@@ -84,13 +82,13 @@ class RegisterController extends Controller
      * @return
      */
     protected function addMerchant(array $data){
-         Merchant::create([
+         Merchant::updateOrCreate([
               'merchant_name' => $data['spaname'],
               'email' =>$data['email'],
               'city'=>'Colombo',
               'location'=>'68.98,6.98',
               'address'=>'Colombo,Nugegoda',
-              'mobile_number'=>'0712148820',
+              'mobile_number'=>$data["mobile_number"]
 
         ]);
     }

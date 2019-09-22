@@ -31,7 +31,7 @@ class CustomerRegistrationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function loginCustomerUser(){
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+        if(Auth::attempt(['mobile_number' => request('mobile_number'), 'password' => request('password')])){
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
             $success['user']=$user;
@@ -52,9 +52,9 @@ class CustomerRegistrationController extends Controller
     {
         $validator=Validator::make($request->all(),[
             'full_name'=>'required|max:30',
+            'mobile_number'=>'required|max:11|unique:users|unique:customers',
             'email'=>'required|email|unique:users',
             'password'=>'required',
-            'mobile_number'=>'required|unique:customers'
         ]);
         if ($validator->fails()) {
             return response()->json(['error'=>$validator->errors()], 401);
@@ -81,7 +81,7 @@ class CustomerRegistrationController extends Controller
             if($user->token()->revoke()){
                 return response()->json(['success'=>'successfully logged out'],$this->successStatus);
             }else{
-                return response()->json(['success'=>'something went wrong'],$this->successStatus);
+                return response()->json(['success'=>'something went wrong'],401);
             }
         }
     }
