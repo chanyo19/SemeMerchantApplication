@@ -101,7 +101,7 @@ class AppointmentRepository implements AppointmentRepositoryInterface
                 $status=null;
 
         }
-        dispatch(new sendMail("Appointment was ".$status.'-'.$data['cus_email'],"Appointment Updated",$data['cus_email']));
+        dispatch(new sendMail("Appointment was ".$status. '-' .$data['cus_email'],"Appointment Updated",$data['cus_email']));
         return  $this->appointment::where('appointment_id',$id)->first()->update([
             'status'=>$data['app_status']
          ]);

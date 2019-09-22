@@ -5,9 +5,11 @@ use App\App\Models\Message\Message;
 use App\Models\Conversation\Conversation;
 use App\Models\Customer\Customer;
 use App\Models\Merchant\Merchant;
+use App\Traits\CustomerTrait;
 use Mockery\Exception;
 
 class MessageRepository implements MessageRepositoryInterface{
+    use CustomerTrait;
     /**
      * @var Message
      */
@@ -45,13 +47,14 @@ class MessageRepository implements MessageRepositoryInterface{
     /**
      * Store the message in database after adding conversation
      * @param array $array
+     * @param $user
      * @return mixed
      */
-    public function store(array $array)
+    public function store(array $array,$user)
     {
         try{
             $m_id=$array["merchant_id"];
-            $c_id=$array["customer_id"];
+            $c_id=$this->getCustomerfromRequest($user);
             $c_identifier=$m_id."_".$c_id;
             $message=[];
             $message["title"]=$array["title"];
@@ -64,7 +67,7 @@ class MessageRepository implements MessageRepositoryInterface{
             }else{
                 $array["c_identifier"]=$c_identifier;
                 $conversation=$this->conversation->create([
-                    'customer_id'=>$array["customer_id"],
+                    'customer_id'=>$c_id,
                     'merchant_id'=>$array["merchant_id"],
                     'c_identifier'=> $array["c_identifier"]
                 ]);

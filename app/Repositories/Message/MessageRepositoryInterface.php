@@ -9,13 +9,16 @@
 namespace App\Repositories\Message;
 
 
+use App\Models\User;
+
 interface MessageRepositoryInterface
 {
     /**Store the message in database
      * @param array $array
+     * @param User $user
      * @return mixed
      */
-    public function store(array $array);
+    public function store(array $array,User $user);
 
     /**Read successfully the message
      * @param $id
