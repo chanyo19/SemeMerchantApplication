@@ -140,13 +140,13 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="/uploaddoc">
+                                <a class="nav-link" href="/merchant/add-staff">
                                     <span class="sidebar-mini"> S </span>
                                     <span class="sidebar-normal"> Staff </span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="/uploaddoc">
+                                <a class="nav-link" href="/merchant/add-facility">
                                     <span class="sidebar-mini"> F </span>
                                     <span class="sidebar-normal"> Facilities </span>
                                 </a>

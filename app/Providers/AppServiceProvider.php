@@ -12,12 +12,16 @@ use App\Repositories\Appointment\AppointmentRepository;
 use App\Repositories\Appointment\AppointmentRepositoryInterface;
 use App\Repositories\Customer\CustomerRepository;
 use App\Repositories\Customer\CustomerRepositoryInterface;
+use App\Repositories\Facility\FacilityRepository;
+use App\Repositories\Facility\FacilityRepositoryInterface;
 use App\Repositories\Message\MessageRepository;
 use App\Repositories\Message\MessageRepositoryInterface;
 use App\Repositories\Service\ServiceRepository;
 use App\Repositories\Service\ServiceRepositoryInterface;
 use App\Repositories\Settings\Menu\MenuRepository;
 use App\Repositories\Settings\Menu\MenuRepositoryInterface;
+use App\Repositories\Staff\StaffRepository;
+use App\Repositories\Staff\StaffRepositoryInterface;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -48,5 +52,7 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(ApiAppointmentRepositoryInterface::class,ApiAppointmentRepository::class);
         app()->bind(AppointmentRepositoryInterface::class,AppointmentRepository::class);
         app()->bind(MessageRepositoryInterface::class,MessageRepository::class);
+        app()->bind(StaffRepositoryInterface::class,StaffRepository::class);
+        app()->bind(FacilityRepositoryInterface::class,FacilityRepository::class);
     }
 }

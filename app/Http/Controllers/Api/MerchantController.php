@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\TimeSlot\Timeslot;
+use App\Models\Facility\Facility;
+use App\Models\Staff\Staff;
 use App\Repositories\Api\Merchant\ApiMerchantRepositoryInterface;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Mockery\Exception;
@@ -47,12 +47,15 @@ class MerchantController extends Controller
 
     /**
      * @param $id
+     * @param $date
      * @return \Illuminate\Http\JsonResponse
      */
     public function getMerchantData($id,$date){
         try{
             return response()->json(['merchant'=>$this->merchantRepository->getMerchantData($id),
-                'available_time'=>$this->merchantRepository->getAvailableTimeSlots($date,$id)
+                'available_time'=>$this->merchantRepository->getAvailableTimeSlots($date,$id),
+                'staff'=>Staff::where('merchant_id',$id)->where('is_active',1)->get(),
+                'facilities'=>Facility::where('merchant_id',$id)->where('is_active',1)->get()
               ],200);
         }catch (Exception $exception){
                return response()->json(['error'=>$exception],404);

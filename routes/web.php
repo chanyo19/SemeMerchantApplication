@@ -80,3 +80,21 @@ Route::get('/generate-invoice/{app_id}',[
 Route::post('/send-invoice',[
     'uses'=>'Invoice\InvoiceController@send'
 ]);
+
+//add staff route
+Route::group(['prefix' => 'merchant',  'middleware' => 'auth'], function()
+{
+
+    Route::get('/add-staff', [
+         'uses'=>'Staff\StaffController@index'
+    ]);
+    Route::post('/add-staff', [
+        'uses'=>'Staff\StaffController@store'
+    ]);
+    Route::get('/add-facility', [
+        'uses'=>'Facility\FacilityController@index'
+    ]);
+    Route::post('/add-facility', [
+        'uses'=>'Facility\FacilityController@store'
+    ]);
+});
