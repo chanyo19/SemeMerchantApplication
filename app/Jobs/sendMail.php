@@ -19,18 +19,21 @@ class sendMail implements ShouldQueue
      * @var string
      */
     private $to;
+    private $subject;
 
     /**
      * Create a new job instance.
      *
      * @param $body
      * @param string $to
+     * @param $subject
      */
-    public function __construct($body,$to="ebayshashila@gmail.com")
+    public function __construct($body,$subject,$to="admin@spahub.lk")
     {
         //
         $this->body = $body;
         $this->to = $to;
+        $this->subject = $subject;
     }
 
     /**
@@ -41,7 +44,7 @@ class sendMail implements ShouldQueue
     public function handle()
     {
      $email=$this->to;
-      $subject="test";
+      $subject=$this->subject;
         Log::info("Sending mail");
         try{
             Mail::send('mail.mail', ['data'=>$this->body], function($message) use ($email, $subject) {
