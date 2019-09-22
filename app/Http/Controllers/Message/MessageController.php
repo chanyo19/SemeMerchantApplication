@@ -31,7 +31,7 @@ class MessageController extends Controller
      */
     public function store(Request $request){
 
-      return $this->repository->store($request->all(),$request->user());
+      return $this->repository->store($request->all(),$request->user()->mobile_number);
 
     }
 
