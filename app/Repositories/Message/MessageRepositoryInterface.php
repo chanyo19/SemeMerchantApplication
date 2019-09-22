@@ -37,9 +37,10 @@ interface MessageRepositoryInterface
      * return my messages according to user type
      * @param $type
      * @param $id
+     * @param $mobile
      * @return mixed
      */
-    public function  getMyConversations($type, $id);
+    public function  getMyConversations($type, $id,$mobile);
 
     /**
      * Get all messages belongs to conversation

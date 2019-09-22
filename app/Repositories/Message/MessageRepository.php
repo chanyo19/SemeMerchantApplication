@@ -135,16 +135,17 @@ class MessageRepository implements MessageRepositoryInterface{
      * get conversation helper
      * @param $type
      * @param $id
+     * @param $cus_mobile
      * @return \Exception
      */
-    public function getConversations($type,$id){
+    public function getConversations($type,$id,$cus_mobile){
 
         try{
 
             if($type=="m"){
                 return $this->merchant->findOrFail($id)->conversation;
             }else{
-              return $this->customer->findOrFail($id)->conversation;
+              return $this->customer->findOrFail($this->getCustomerfromRequestMoBile($cus_mobile))->conversation;
             }
 
         }catch (\Exception $exception){
