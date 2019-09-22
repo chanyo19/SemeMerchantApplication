@@ -21,6 +21,9 @@ trait CustomerTrait
     public function getCustomerfromRequest(User $user){
         return Customer::where('email',$user->email)->first()->id;
     }
+    public function getCustomerfromRequestMoBile($mobile){
+        return Customer::where('mobile_number',$mobile)->first()->id;
+    }
 
 
 }

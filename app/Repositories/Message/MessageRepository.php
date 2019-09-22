@@ -50,11 +50,11 @@ class MessageRepository implements MessageRepositoryInterface{
      * @param $user
      * @return mixed
      */
-    public function store(array $array,$user)
+    public function store(array $array,$mobile)
     {
         try{
             $m_id=$array["merchant_id"];
-            $c_id=$this->getCustomerfromRequest($user);
+            $c_id=$this->getCustomerfromRequestMoBile($mobile);
             $c_identifier=$m_id."_".$c_id;
             $message=[];
             $message["title"]=$array["title"];

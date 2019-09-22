@@ -15,10 +15,10 @@ interface MessageRepositoryInterface
 {
     /**Store the message in database
      * @param array $array
-     * @param User $user
+     * @param $mobile
      * @return mixed
      */
-    public function store(array $array,User $user);
+    public function store(array $array,$mobile);
 
     /**Read successfully the message
      * @param $id
