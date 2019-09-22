@@ -21,14 +21,14 @@
                                 <span class="bmd-form-group">
                                  <div class="input-group ml-5 mr-4" style="width: auto">
 <!--                                   <input type="text" class="form-control" placeholder="Mobile Number">-->
-                                      <input id="email" type="email"
-                                             class="form-control{{ $errors->has('spaemail') ? ' is-invalid' : '' }}"
-                                             name="email" placeholder="Email" value="{{ old('spaemail') }}" required
+                                      <input id="mobile_number" type="number"
+                                             class="form-control{{ $errors->has('mobile_number') ? ' is-invalid' : '' }}"
+                                             name="mobile_number" placeholder="Mobile Number" value="{{ old('mobile_number') }}" required
                                              autofocus>
 
-                                @if ($errors->has('spaemail'))
+                                @if ($errors->has('mobile_number'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('spaemail') }}</strong>
+                                        <strong>{{ $errors->first('mobile_number') }}</strong>
                                     </span>
                                 @endif
                                  </div>

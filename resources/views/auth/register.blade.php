@@ -122,7 +122,7 @@
                                                                             <label for="pass"
                                                                                    class="bmd-label-floating">
                                                                                 Password (required)</label>
-                                                                            <input type="text" id="password" name="password"
+                                                                            <input type="password" id="password" name="password"
                                                                                    class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
                                                                                    required>
                                                                             {{--                                                                            @if ($errors->has('password'))--}}
@@ -137,7 +137,7 @@
                                                                             <label for="repass"
                                                                                    class="bmd-label-floating">
                                                                                 Confirm Password</label>
-                                                                            <input type="text" id="repass" name="repass"
+                                                                            <input type="password" id="repass" name="repass"
                                                                                    class="form-control"
                                                                                    required>
                                                                         </div>
