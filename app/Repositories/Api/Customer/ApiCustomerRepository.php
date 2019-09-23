@@ -21,7 +21,8 @@ class ApiCustomerRepository implements ApiCustomerRepositoryInterface {
             'mobile_number'=>$data["mobile_number"],
             'user_type'=>2,
             'last_login'=>date('Y-m-d'),
-            'is_active'=>1
+            'is_active'=>1,
+            'push_id'=>$data['push_id']
         ]);
     }
     /**Add customer instance to Customers table

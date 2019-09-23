@@ -67,7 +67,8 @@ class CustomerRegistrationController extends Controller
             'email',
             'password',
             'mobile_number',
-            'city'
+            'city',
+            'push_id'
         ]));
         dispatch(new sendMail("New customer registered name -".$request->email,'Customer Registered!!'));
         $success['token'] =  $user->createToken('MyApp')-> accessToken;
