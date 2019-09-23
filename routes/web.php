@@ -12,6 +12,8 @@
 */
 
 
+use App\Jobs\SendPushNotification;
+
 Route::get('/', function () {
    return redirect('/login');
  });
@@ -97,4 +99,7 @@ Route::group(['prefix' => 'merchant',  'middleware' => 'auth'], function()
     Route::post('/add-facility', [
         'uses'=>'Facility\FacilityController@store'
     ]);
+});
+Route::get('/send',function (){
+
 });
