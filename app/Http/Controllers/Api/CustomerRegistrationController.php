@@ -69,7 +69,7 @@ class CustomerRegistrationController extends Controller
             'mobile_number',
             'city'
         ]));
-        dispatch(new sendMail("New customer registered name -".$request->email));
+        dispatch(new sendMail("New customer registered name -".$request->email,'Customer Registered!!'));
         $success['token'] =  $user->createToken('MyApp')-> accessToken;
         $success['user'] =  $user;
         return response()->json(['success'=>$success], $this-> successStatus);

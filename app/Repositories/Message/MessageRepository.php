@@ -143,7 +143,7 @@ class MessageRepository implements MessageRepositoryInterface{
 
         try{
 
-            if($type=="m"){
+            if($type==="m"){
                 return $this->merchant->findOrFail($id)->conversation;
             }else{
               return $this->customer->findOrFail($this->getCustomerfromRequestMoBile($cus_mobile))->conversation;

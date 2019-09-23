@@ -19,7 +19,7 @@ trait CustomerTrait
      * @return mixed
      */
     public function getCustomerfromRequest(User $user){
-        return Customer::where('email',$user->email)->first()->id;
+        return Customer::where('mobile_number',$user->mobile_number)->first()->id;
     }
     public function getCustomerfromRequestMoBile($mobile){
         return Customer::where('mobile_number',$mobile)->first()->id;

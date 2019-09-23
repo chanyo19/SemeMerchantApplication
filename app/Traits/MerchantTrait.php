@@ -9,6 +9,6 @@ trait MerchantTrait{
      * @return mixed
      */
     public function getMerchant(){
-        return Merchant::where('email',Auth::user()->email)->first()->id;
+        return Merchant::where('mobile_number',Auth::user()->mobile_number)->first()->id;
     }
 }

@@ -23,16 +23,15 @@ class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
 
     /**
      * @param array $data
+     * @param $cus_id
      * @return mixed
      */
     public function addCustomerAppointmentRequest(array $data,$cus_id)
     {
         // TODO: Implement addCustomerAppointmentRequest() method.
         if($data&&$cus_id){
-
-
             try{
-                dispatch(new sendMail("New appointment added from ".$cus_id .'Customer to - '.$data['merchant_id'].'merchant'));
+                dispatch(new sendMail("New appointment added from ".$cus_id .'Customer to - '.$data['merchant_id'].'merchant','New User Registered!!'));
                 return $this->appointment->updateOrCreate([
                     'appointment_id'=>time().'-'.$data['merchant_id'].'-'.$cus_id,
                     'merchant_id'=>$data['merchant_id'],
