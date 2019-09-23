@@ -10,9 +10,13 @@ namespace App\Repositories\Appointment;
 
 
 use App\Jobs\sendMail;
+use App\Jobs\SendPushNotification;
 use App\Models\Appointment\Appointment;
+use App\Models\Customer\Customer;
 use App\Models\Merchant\Merchant;
+use App\Models\User;
 use App\Traits\MerchantTrait;
+use Illuminate\Support\Facades\Log;
 
 class AppointmentRepository implements AppointmentRepositoryInterface
 {
@@ -86,27 +90,39 @@ class AppointmentRepository implements AppointmentRepositoryInterface
     public function updateAppointment($id, array $data)
     {
         // TODO: Implement updateAppointment() method.
-        $status=null;
-        switch ($data['app_status']){
-            case 1:
-                $status="Pending";
-                break;
-            case 2:
-                $status="Approved";
-                break;
-            case 3:
-                $status="Cancelled";
-                break;
-            default:
-                $status=null;
+        try{
+            $status=null;
+            switch ($data['app_status']){
+                case 1:
+                    $status="Pending";
+                    break;
+                case 2:
+                    $status="Approved";
+                    break;
+                case 3:
+                    $status="Cancelled";
+                    break;
+                default:
+                    $status=null;
 
+            }
+            $cus_mobile=Customer::where('id',$this->appointment::where('appointment_id',$id)->first()->customer_id)->first()->mobile_number;
+            $push_id=User::where('mobile_number',$cus_mobile)->first()->push_id;
+            if($push_id){
+                dispatch(new SendPushNotification([$push_id],"Appointment was ".$status,"Confirmed"));
+            }
+            dispatch(new sendMail("Appointment was ".$status. '-' .$data['cus_email'],"Appointment Updated",$data['cus_email']));
+            return  $this->appointment::where('appointment_id',$id)->first()->update([
+                'status'=>$data['app_status']
+            ]);
+        }catch (\Exception $exception){
+            Log::error($exception);
         }
-        dispatch(new sendMail("Appointment was ".$status. '-' .$data['cus_email'],"Appointment Updated",$data['cus_email']));
-        return  $this->appointment::where('appointment_id',$id)->first()->update([
-            'status'=>$data['app_status']
-         ]);
     }
-    public function notifyCustomer($email,$appointment){
+    public function notifyCustomer($email,$appointment,$push_id){
+        if($push_id){
+            dispatch(new SendPushNotification([$push_id],"Appointment Reminder. ".$appointment,"Confirmed"));
+        }
         dispatch(new sendMail('Reminder - Appointment ID- '.$appointment,"Appointment Reminder",$email));
         return true;
     }

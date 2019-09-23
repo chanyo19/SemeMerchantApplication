@@ -42,8 +42,9 @@ interface AppointmentRepositoryInterface
     /**
      * @param $email
      * @param $appointment
+     * @param $push_id
      * @return mixed
      */
-    public function notifyCustomer($email, $appointment);
+    public function notifyCustomer($email, $appointment,$push_id);
 
 }

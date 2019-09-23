@@ -70,8 +70,15 @@ class AppointmentController extends Controller
             return redirect()->back();
         }
     }
-    public function notifyCustomer($email,$appointment){
-         if($this->appointmentRepository->notifyCustomer($email,$appointment)){
+
+    /**
+     * @param $email
+     * @param $appointment
+     * @param $push_id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function notifyCustomer($email, $appointment, $push_id){
+         if($this->appointmentRepository->notifyCustomer($email,$appointment,$push_id)){
              Session::flash('success','Appointment Reminded Successfully');
              return redirect()->back();
          }else{
