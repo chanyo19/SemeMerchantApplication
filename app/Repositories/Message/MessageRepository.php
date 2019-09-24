@@ -2,9 +2,11 @@
 
 namespace App\Repositories\Message;
 use App\App\Models\Message\Message;
+use App\Jobs\SendPushNotification;
 use App\Models\Conversation\Conversation;
 use App\Models\Customer\Customer;
 use App\Models\Merchant\Merchant;
+use App\Models\User;
 use App\Traits\CustomerTrait;
 use Mockery\Exception;
 
@@ -171,11 +173,21 @@ class MessageRepository implements MessageRepositoryInterface{
      * @return
      */
     public function storeToMessageUsingConversation($c_id, array $data){
-     return $this->message->create([
+    //Getting push id to send push notification
+        if($c_id){
+            $customer_id=Conversation::findOrFail($c_id)->customer_id;
+            $cus_mobile=Customer::where('id',$customer_id)->first()->mobile_number;
+            $push_id=User::where('mobile_number',$cus_mobile)->first()->push_id;
+            if($push_id){
+                dispatch(new SendPushNotification([$push_id],"New message received from Conversation ID - ".$c_id,""));
+            }
+        }
+     $message= $this->message->create([
          'conversation_id'=>$c_id,
          'title'=>'',
          'message'=>$data["message"],
          'type'=>'m'
      ]);
+     return $message;
     }
 }
