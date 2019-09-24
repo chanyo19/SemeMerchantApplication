@@ -23,6 +23,9 @@
 
                                         <div class="toolbar hidden-print">
                                             <div class="text-right">
+                                                <a  class="btn btn-danger"><i class="fa fa-money"></i> MARK as N-PAID</a>
+                                                <a class="btn btn-warning"><i class="fa fa-money"></i> MARK as P-PAID</a>
+                                                <a  class="btn btn-success"  href="{{url('/merchant/mark-as-paid/'.$invoice)}}"><i class="fa fa-money"></i> MARK as PAID</a>
                                                 <button id="printInvoice" onclick="printout()" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
                                                 <button class="btn btn-info" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
                                                 <button class="btn btn-info" onclick="send()"><i class="fa fa-mail-reply"></i> EMAIL</button>
@@ -59,7 +62,7 @@
                                                             <div class="email">{{$appointment[0]["customer"]["email"]}}</div>
                                                         </div>
                                                         <div class="col invoice-details">
-                                                            <h1 class="invoice-id">INVOICE 3-2-1</h1>
+                                                            <h1 class="invoice-id">INVOICE #{{$invoice}}</h1>
                                                             <div class="date">Date of Invoice: {{date('Y-m-d')}}</div>
 
                                                         </div>

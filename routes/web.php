@@ -76,9 +76,7 @@ Route::post('/update-appointment',[
 Route::get('/notify-customer/{email}/{appointment}',[
     'uses'=>'Appointment\AppointmentController@notifyCustomer'
 ]);
-Route::get('/generate-invoice/{app_id}',[
-    'uses'=>'Invoice\InvoiceController@index'
-]);
+
 Route::post('/send-invoice',[
     'uses'=>'Invoice\InvoiceController@send'
 ]);
@@ -108,7 +106,16 @@ Route::group(['prefix' => 'merchant',  'middleware' => 'auth'], function()
     Route::post('/send-message',[
         'uses'=>'Message\MessageController@sendMessageToClient'
     ]);
+    Route::get('/my-invoice',[
+     'uses'=>'Invoice\InvoiceController@indexMyInvoices'
+    ]);
+    Route::get('/my-invoice-view/{inv_id}/{app_id}',[
+        'uses'=>'Invoice\InvoiceController@index'
+    ]);
 
+    Route::get('/mark-as-paid/{inv_id}',[
+        'uses'=>'Invoice\InvoiceController@markInvoiceAsPaid'
+    ]);
 });
 Route::get('/send',function (){
 

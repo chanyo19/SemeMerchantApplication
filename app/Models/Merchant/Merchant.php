@@ -4,6 +4,7 @@ namespace App\Models\Merchant;
 
 use App\App\Models\Message\Message;
 use App\Models\Customer\Customer;
+use App\Models\Invoice\Invoice;
 use App\Models\Services\Services;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -52,5 +53,12 @@ class Merchant extends Model
      */
     public function conversation(){
         return $this->hasMany('App\Models\Conversation\Conversation','merchant_id','id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function getMerchantInvoices(){
+        return $this->hasMany(Invoice::class,'merchant_id','id');
     }
 }

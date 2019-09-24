@@ -164,6 +164,27 @@
                 <li class="nav-item ">
                     <a class="nav-link" data-toggle="collapse" href="#fileExplorer">
                         <i class="material-icons">image</i>
+                        <p> Invoice
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="fileExplorer">
+                        <ul class="nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{url('/merchant/my-invoice')}}">
+                                    <span class="sidebar-mini"> I </span>
+                                    <span class="sidebar-normal">Invoice </span>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" data-toggle="collapse" href="#fileExplorer">
+                        <i class="material-icons">image</i>
                         <p> Appointments
                             <b class="caret"></b>
                         </p>
@@ -173,7 +194,7 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{url('/view-my-today-appointments')}}">
                                     <span class="sidebar-mini"> T </span>
-                                    <span class="sidebar-normal">Todays Appointments </span>
+                                    <span class="sidebar-normal">Today's Appointments </span>
                                 </a>
                             </li>
                             {{--<li class="nav-item ">--}}
