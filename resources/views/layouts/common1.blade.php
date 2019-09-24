@@ -176,12 +176,12 @@
                                     <span class="sidebar-normal">Todays Appointments </span>
                                 </a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{url('/view-all-my-appointments')}}">
-                                    <span class="sidebar-mini"> T </span>
-                                    <span class="sidebar-normal">Todays Appointments </span>
-                                </a>
-                            </li>
+                            {{--<li class="nav-item ">--}}
+                                {{--<a class="nav-link" href="{{url('/view-all-my-appointments')}}">--}}
+                                    {{--<span class="sidebar-mini"> T </span>--}}
+                                    {{--<span class="sidebar-normal">Todays Appointments </span>--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{url('/view-my-history-appointments')}}">
                                     <span class="sidebar-mini"> H </span>
