@@ -162,13 +162,13 @@
                     </div>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" data-toggle="collapse" href="#fileExplorer">
+                    <a class="nav-link" data-toggle="collapse" href="#invoiceExplorer">
                         <i class="material-icons">image</i>
                         <p> Invoice
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse" id="fileExplorer">
+                    <div class="collapse" id="invoiceExplorer">
                         <ul class="nav">
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{url('/merchant/my-invoice')}}">
