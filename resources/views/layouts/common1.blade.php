@@ -210,6 +210,12 @@
                                     <span class="sidebar-normal">All customers</span>
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{url('/merchant/view-my-conversations')}}">
+                                    <span class="sidebar-mini"> M </span>
+                                    <span class="sidebar-normal">All Message Conversations</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

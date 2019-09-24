@@ -99,6 +99,16 @@ Route::group(['prefix' => 'merchant',  'middleware' => 'auth'], function()
     Route::post('/add-facility', [
         'uses'=>'Facility\FacilityController@store'
     ]);
+    Route::get('/view-my-conversations', [
+        'uses'=>'Message\MessageController@myConversations'
+    ]);
+    Route::get('/view-my-messages/{c_id}', [
+        'uses'=>'Message\MessageController@myMessages'
+    ]);
+    Route::post('/send-message',[
+        'uses'=>'Message\MessageController@sendMessageToClient'
+    ]);
+
 });
 Route::get('/send',function (){
 

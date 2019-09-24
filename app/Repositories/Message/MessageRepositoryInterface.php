@@ -49,5 +49,12 @@ interface MessageRepositoryInterface
      */
     public function getMyMessages($c_id);
 
+    /**
+     * @param $c_id
+     * @param array $data
+     * @return mixed
+     */
+    public function storeToMessageUsingConversation($c_id, array $data);
+
 
 }

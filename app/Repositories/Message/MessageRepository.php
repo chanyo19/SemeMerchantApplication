@@ -164,4 +164,18 @@ class MessageRepository implements MessageRepositoryInterface{
         // TODO: Implement getMyMessages() method.
         return $this->message->where('conversation_id',$c_id)->get();
     }
+
+    /**
+     * @param $c_id
+     * @param array $data
+     * @return
+     */
+    public function storeToMessageUsingConversation($c_id, array $data){
+     return $this->message->create([
+         'conversation_id'=>$c_id,
+         'title'=>'',
+         'message'=>$data["message"],
+         'type'=>'m'
+     ]);
+    }
 }
