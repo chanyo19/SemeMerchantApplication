@@ -36,7 +36,7 @@
                                         @foreach($invoices as $item)
                                             <tr>
                                                 <td>{{$item->id}}</td>
-                                                <td>{{\App\Models\Appointment\Appointment::find($item->appointment_id)->appointment_id}}</td>
+                                                <td>{{$item->appointment_id}}</td>
 
                                                 <td>{{$item->customer_id}}</td>
                                                 <td>{{$item->services}}</td>
@@ -68,7 +68,7 @@
                                                     @endif
                                                 </td>
                                                 <td>{{$item->created_at}}</td>
-                                                <td><a class="btn btn-success" href="{{url('/merchant/my-invoice-view/'.$item->id."/".\App\Models\Appointment\Appointment::find($item->appointment_id)->appointment_id)}}"><i class="fa fa-eye"></i> </a> <a href="{{url('/generate-invoice/'.$item->appointment_id)}}" class="btn btn-success"><i class="fa fa-print"></i> </a> <button class="btn btn-primary"><i class="fa fa-envelope"></i> </button> <button class="btn btn-danger"><i class="fa fa-remove"></i> </button> </td>
+                                                <td><a class="btn btn-success" href="{{url('/merchant/my-invoice-view/'.$item->id."/".$item->appointment_id)}}"><i class="fa fa-eye"></i> </a> <a href="{{url('/generate-invoice/'.$item->appointment_id)}}" class="btn btn-success"><i class="fa fa-print"></i> </a> <button class="btn btn-primary"><i class="fa fa-envelope"></i> </button> <button class="btn btn-danger"><i class="fa fa-remove"></i> </button> </td>
 
                                             </tr>
                                         @endforeach
