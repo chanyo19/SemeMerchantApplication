@@ -3,6 +3,7 @@ namespace App\Repositories\Api\Appointment;
 use App\Jobs\sendMail;
 use App\Jobs\SendPushNotification;
 use App\Models\Appointment\Appointment;
+use App\Models\Invoice\Invoice;
 use App\Traits\CustomerTrait;
 
 class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
@@ -11,14 +12,20 @@ class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
      * @var Appointment
      */
     private $appointment;
+    /**
+     * @var Invoice
+     */
+    private $invoice;
 
     /**
      * ApiAppointmentRepository constructor.
      * @param Appointment $appointment
+     * @param Invoice $invoice
      */
-    public function __construct(Appointment $appointment)
+    public function __construct(Appointment $appointment,Invoice $invoice)
     {
         $this->appointment = $appointment;
+        $this->invoice = $invoice;
     }
 
 
@@ -38,7 +45,7 @@ class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
                 if($push_id){
                     dispatch(new SendPushNotification([$push_id],"Appointment Added Successfully. - MERCHANT -".$data['merchant_id'],"Confirmed"));
                 }
-                return $this->appointment->updateOrCreate([
+                $appointment= $this->appointment->updateOrCreate([
                     'appointment_id'=>time().'-'.$data['merchant_id'].'-'.$cus_id,
                     'merchant_id'=>$data['merchant_id'],
                     'customer_id'=>$cus_id,
@@ -49,6 +56,17 @@ class ApiAppointmentRepository implements ApiAppointmentRepositoryInterface {
                     'amount'=>$data['amount'],
                     'services'=>$data['services']
                 ]);
+                $invoice=$this->invoice->create([
+                    'appointment_id'=>$appointment->appointment_id,
+                    'merchant_id'=>$appointment->merchant_id,
+                    'customer_id'=>$appointment->customer_id,
+                    'services'=>$appointment->services,
+                    'amount'=>$appointment->amount,
+                    'invoiced_person'=>$appointment->merchant_id,
+                ]);
+                if($invoice){
+                    return $appointment;
+                }
 
             }catch (\Exception $exception){
 
